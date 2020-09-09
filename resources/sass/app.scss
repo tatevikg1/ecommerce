@@ -1,0 +1,45 @@
+
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;900&display=swap');
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+
+@import 'components/layout.scss';
+@import 'components/buttons.scss';
+@import 'components/product.scss';
+
+.white-bg{
+    background-color: $white;
+}
+.bg-gray{
+    background-color: $bg-gray;
+}
+
+
+.featured-section {
+    padding: 50px 0;
+
+    .products {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-gap: 60px $gutter;
+
+        .product-price {
+            color: $text-color-light !important;
+        }
+    }
+}
+
+.app-name{
+    color:$white !important;
+    font-weight: bold;
+}
+
+.white-text-btn{
+    color:$white;
+    font-weight: bold;
+}
