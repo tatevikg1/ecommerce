@@ -18,29 +18,21 @@
                     <p>{{ $product->description }}</p>
 
                     <div class="ta-buttons mt-5">
-                        <a href="/cart/{{ $product->id }}" class="button button-black">Add To Cart</a>
+
+                        <form class="" action="{{ route('cart.store') }}" method="post">
+                            @csrf
+                            <input type="hidden" name="id" value="{{ $product->id }}">
+                            <input type="submit" class="button button-black" value="Add To Cart">
+                        </form>
+                        
                     </div>
                 </div>
             </div>
 
         </div>
 
-        <h5 class="m-5"><strong>You may also like...</strong></h5>
 
-        <div class="d-flex flex-wrap justify-content-around">
-
-            @foreach ($products as $product)
-                <div class="product m-3">
-                    <a href="/shop/{{$product->slug}}">
-                        <img src="/laptop.jpg" width="130px" alt="product">
-                    </a>
-                    <a href="/shop/{{$product->slug}}">
-                        <div class="product-name">{{ $product->name }}</div>
-                    </a>
-                    <div class="product-price">{{ $product->price }}</div>
-                </div>
-            @endforeach
-        </div>
+        @include('layouts.randomFour')
 
     </div>
 

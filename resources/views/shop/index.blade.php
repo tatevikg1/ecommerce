@@ -24,19 +24,26 @@
 
                 </div>
 
-                <div class="col-9 d-flex flex-wrap justify-content-around">
-                    @foreach ($products as $product)
-                        <div class="product m-3">
-                            <a href="/shop/{{$product->slug}}">
-                                <img src="laptop.jpg" width="130px" alt="product">
-                            </a>
-                            <a href="/shop/{{$product->slug}}">
-                                <div class="product-name">{{ $product->name }}</div>
-                            </a>
-                            <div class="product-price">{{ $product->price }}</div>
-                        </div>
-                    @endforeach
+                <div class="col-9">
+                    <h3 style="text-align:center"><strong>{{ $category->name }}</strong> </h3>
+
+                    <div class="mt-5 d-flex flex-wrap justify-content-around">
+
+                        @foreach ($products as $product)
+                            <div class="product m-3">
+                                <a href="/shop/{{$product->slug}}">
+                                    <img src="laptop.jpg" width="130px" alt="product">
+                                </a>
+                                <a href="/shop/{{$product->slug}}">
+                                    <div class="product-name">{{ $product->name }}</div>
+                                </a>
+                                <div class="product-price">{{ $product->price }}</div>
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
+
+
             </div>
         </div>
     </div>

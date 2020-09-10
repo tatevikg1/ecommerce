@@ -8,58 +8,63 @@
 
     <div class="d-flex">
         <div class="col-6">
-            <form class="" action="index.html" method="post">
+            <form  action="{{ route('checkout.post') }}" method="POST">
+                @csrf
 
                 <h4><strong>Billing Details</strong> </h4>
 
                 <div class="form-group">
-                    <label for="">Email Address</label>
-                    <input type="text" name="" value="" class="form-control">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email"
+                            value="{{ old('email') ? old('email') : auth()->user()->email }}"
+                            class="form-control"
+                            required>
                 </div>
 
                 <div class="form-group">
-                    <label for="">Name</label>
-                    <input type="text" name="" value="" class="form-control">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" value="{{ auth()->user()->name }}" class="form-control" required>
                 </div>
                 <div class="form-group">
-                    <label for="">Address</label>
-                    <input type="text" name="" value="" class="form-control">
+                    <label for="address">Address</label>
+                    <input type="text" id="address" name="address" value="{{ old('address') }}" class="form-control" required>
                 </div>
                 <div class="d-flex justify-content-between">
-                    <div class="">
+                    <div class="city">
                         <label for="">City</label>
-                        <input type="text" name="" value="" class="form-control">
+                        <input type="text" id="city" name="city" value="{{ old('city') }}" class="form-control" required>
 
-                        <label for="">Postal Code</label>
-                        <input type="text" name="" value="" class="form-control">
+                        <label for="postal_code">Postal Code</label>
+                        <input type="text" id="postal_code" name="postal_code" value="" class="form-control" required>
                     </div>
                     <div class="">
-                        <label for="">Province</label>
-                        <input type="text" name="" value="" class="form-control">
+                        <label for="province">Province</label>
+                        <input type="text" id="province" name="province" value="{{ old('province') }}" class="form-control" required>
 
-                        <label for="">Phone</label>
-                        <input type="text" name="" value="" class="form-control">
+                        <label for="phone">Phone</label>
+                        <input type="text" id="phone" name="phone" value="{{ old('phone') }}" class="form-control" required>
                     </div>
                 </div>
 
                 <h4><strong>Payment Details</strong> </h4>
 
                 <div class="form-group">
-                    <label for="">Name On Card</label>
-                    <input type="text" name="" value="" class="form-control">
+                    <label for="name_on_card">Name On Card</label>
+                    <input type="text" id="name_on_card" name="name_on_card" value="{{ old('name_on_card') }}" class="form-control" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="">Credit Card Number</label>
-                    <input type="text" name="" value="" class="form-control">
+                    <label for="credit_card_number">Credit Card Number</label>
+                    <input type="text" id="credit_card_number" name="credit_card_number" value="{{ old('credit_card_number') }}" class="form-control" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="">Expiration Date</label>
-                    <input type="date" name="" value="" class="form-control">
+                    <label for="expiration_date">Expiration Date</label>
+                    <input type="date" id="expiration_date" name="expiration_date" value="{{ old('expiration_date') }}" class="form-control" required>
                 </div>
 
-                <input type="button" name="" value="Complate Order" class="button button-black mb-5">
+                <input type="hidden" name="user_id" value="{{ Auth::id() }}">
+                <input type="submit" name="" value="Complate Order" class="button button-black mb-5">
 
             </form>
         </div>

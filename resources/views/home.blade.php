@@ -12,7 +12,7 @@
                             <h1>Laravel Ecommerce</h1>
                             <p>Includes multiple products, categories, a shopping cart and a checkout system with Stripe integration.</p>
                             <div class="ta-buttons">
-                                <a href="https://github.com" class="button button-white">GitHub</a>
+                                <a href="https://github.com/tatevikg1/ecommerce.git" class="button button-white">GitHub</a>
                             </div>
                         </div>
 

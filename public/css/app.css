@@ -11189,3 +11189,7 @@ header .top-nav-right {
   font-weight: bold;
 }
 
+hr {
+  border: 1px solid gray;
+}
+

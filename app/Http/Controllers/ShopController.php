@@ -9,6 +9,7 @@ use App\Category;
 class ShopController extends Controller
 {
 
+
     public function index()
     {
         $products = Product::all();
@@ -18,42 +19,14 @@ class ShopController extends Controller
     }
 
 
-    public function create()
+
+    public function show($slug)
     {
-        //
+        $randomFour = Product::randomFour()->get();
+        $product = Product::where('slug', $slug)->firstOrFail();
+
+
+        return view('shop.show', compact('product', 'randomFour'));
     }
 
-
-    public function store(Request $request)
-    {
-        //
-    }
-
-
-    public function show($product)
-    {
-        $products = Product::inRandomOrder()->take(4)->get();
-        $product = Product::where('slug', $product)->first();
-
-
-        return view('shop.show', compact('product', 'products'));
-    }
-
-
-    public function edit($id)
-    {
-        //
-    }
-
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-
-    public function destroy($id)
-    {
-        //
-    }
 }
