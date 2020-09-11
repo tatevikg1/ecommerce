@@ -14,12 +14,17 @@ Route::get('/home',   'HomeController@index')->name('Home');
 Route::get('/shop',         'ShopController@index')->name('shop.index');
 Route::get('/shop/{slug}',  'ShopController@show')->name('shop.show');
 
-Route::get('/cart', 'CartController@index')->name('cart.index');
-Route::post('/cart',   'CartController@store')->name('cart.store');
-Route::get('/destroy', 'CartController@destroy')->name('cart.destroy');
+Route::get    ('/cart',             'CartController@index')->name('cart.index');
+Route::post   ('/cart/{product}',   'CartController@store')->name('cart.store');
+Route::delete ('/cart/{cartItem}',  'CartController@destroy')->name('cart.destroy');
+Route::patch  ('/cart/{cartItem}',  'CartController@tocart')->name('cart.tocart');
 
-Route::get('/checkout',     'CheckoutController@get');
-// Route::post('/checkout',    'CheckoutController@post')->name('checkout.post');
+Route::post   ('/later/{cartItem}', 'LaterController@add')->name('later.add');
+Route::get    ('/later',            'LaterController@index')->name('later.index');
+Route::delete ('/later/{cartItem}', 'LaterController@destroy')->name('later.destroy');
+
+Route::get('/checkout',     'CheckoutController@index')->name('checkout.index');
+Route::post('/checkout',    'CheckoutController@index')->name('checkout.post');
 
 Route::get('/thankyou', function(){
     return view('thankyou');

@@ -11,6 +11,9 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <!-- srtipe is for credit card charging -->
+    <script src="https://js.stripe.com/v3/"></script>
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -65,7 +68,10 @@
                                 <a class="btn white-text-btn ml-5" href="/">ABOUT</a>
                             </li>
                             <li  class='btn-hover'>
-                                <a class="btn white-text-btn ml-5" href="{{ route('cart.index') }}">CART</a>
+                                <a class="btn white-text-btn ml-5" href="{{ route('cart.index') }}">
+                                    CART
+                                    <span></span>
+                                </a>
                             </li>
                             <li class="nav-item dropdown ml-5">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

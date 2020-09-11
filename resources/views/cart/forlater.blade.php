@@ -6,13 +6,14 @@
     <div class="col-12 mt-5">
 
         @if(session()->has('success_message'))
-            <div class="alert alert-success">
-                {{ Session::get('success_message') }}
-            </div>
+        <div class="alert alert-success">
+            {{ Session::get('success_message') }}
+        </div>
         @endif
 
+
         @if($cartItems)
-            <h4> {{ count($cartItems) }}  item(s) in Shopping Cart</h4>
+            <h4> {{ count($cartItems) }}  item(s) saved for later!</h4>
             <hr>
 
             <div class="">
@@ -27,7 +28,7 @@
                         </div>
                         <div class="col-3" style="padding-left:10%">
                             <div class="">
-                                <form  action="{{ route('cart.destroy', $cartItem) }}" method="post">
+                                <form  action="{{ route('later.destroy', $cartItem->id) }}" method="post">
                                     @csrf
                                     @method('delete')
                                     <input type="submit"  value="Remove" class="cart_item_options">
@@ -35,11 +36,10 @@
 
                             </div>
                             <div class="">
-                                <form  action="{{ route('later.add', $cartItem) }}" method="post">
+                                <form  action="{{ route('cart.tocart', $cartItem->id) }}" method="post">
                                     @csrf
-                                    @method('post')
-
-                                    <input type="submit" value="Save for later" class="cart_item_options">
+                                    @method('PATCH')
+                                    <input type="submit" value="Save to Cart" class="cart_item_options">
                                 </form>
                             </div>
 
@@ -57,51 +57,24 @@
 
             </div>
         @else
-            <h3 class="alert alert-danger">No items in Cart</h3>
+            <h3 class="alert alert-danger">No items saved for later!</h3>
         @endif
 
-        <div class="col-12 d-flex mt-4 pt-5 pb-5" style="background-color:lightgray">
-            <div class="col-6">
-                Delivery is free within the range of 10km and is 1$ for km after that.
-            </div>
-            <div class="col-3" style="position:relative; right:-8%">
-                <div class="">Price for products</div>
-                <div class="">Delivery</div>
-                <div class=""><strong>Total</strong> </div>
-            </div>
-
-            <div class="col-3" style="text-align:right;">
-                <div class="">${{ $cart->total_price }}</div>
-                <div class="">$0</div>
-                <div class=""><strong> ${{ $cart->total_price  }}</strong></div>
-            </div>
-        </div>
 
         <div class="mb-5 mt-5 d-flex justify-content-between">
             <div class="ta-buttons">
                 <a href="/shop" class="button button-black">Continue Shoping</a>
             </div>
 
-            @if(count($cartItems) > 0)
-                <div class="ta-buttons">
-                    <a href="/checkout" class="button button-black">Checkout</a>
-                </div>
-            @endif
-
             <div class="ta-buttons">
-                <a href="{{ route('later.index') }}" class="button button-black">Saved for Later</a>
+                <a href="/cart" class="button button-black">Shopping Cart</a>
             </div>
 
-
-        </div>
-
-        <div class="m-3 alert alert-success">
-            You have no items saved for later.
         </div>
 
 
     </div>
-    @include('layouts.randomFour')
+
 </div>
 
 

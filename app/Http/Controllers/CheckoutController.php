@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use App\CartItem;
 
 
 class CheckoutController extends Controller
@@ -15,12 +16,14 @@ class CheckoutController extends Controller
     }
 
 
-    public function get()
+    public function index()
     {
-        $products = Product::inRandomOrder()->take(2)->get();
+        $products = CartItem::whereIn('cart_id', function($query){
+            $query->select('id')->from('carts')->where('user_id', auth()->id())->first();
+        })->where('for_later', false)->get();
 
         return view('checkout', compact('products'));
     }
 
-    
+
 }

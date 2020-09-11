@@ -19,12 +19,11 @@
 
                     <div class="ta-buttons mt-5">
 
-                        <form class="" action="{{ route('cart.store') }}" method="post">
+                        <form class="" action="{{ route('cart.store', $product->id) }}" method="post">
                             @csrf
-                            <input type="hidden" name="id" value="{{ $product->id }}">
                             <input type="submit" class="button button-black" value="Add To Cart">
                         </form>
-                        
+
                     </div>
                 </div>
             </div>
