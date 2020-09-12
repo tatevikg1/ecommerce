@@ -13,6 +13,7 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     <!-- srtipe is for credit card charging -->
     <script src="https://js.stripe.com/v3/"></script>
+    <script src="{{ asset('js/stripe.js') }}" defer></script>
 
 
     <!-- Fonts -->

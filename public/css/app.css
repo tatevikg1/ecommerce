@@ -11166,6 +11166,12 @@ header .top-nav-right {
   margin-bottom: 16px;
 }
 
+.product-name {
+  text-decoration: none;
+  color: black;
+  text-transform: capitalize;
+}
+
 .StripeElement {
   box-sizing: border-box;
   padding: 10px 12px;

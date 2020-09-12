@@ -19,10 +19,12 @@
                 <?php foreach ($cartItems  as $cartItem): ?>
                     <div class="d-flex col-12" style="padding-left:0;">
                         <div class="col-3" style="left:0">
-                            <img src="/laptop.jpg" alt="product image" width='50%' style="min-width:80px">
+                            <a href="{{ route('shop.show', $cartItem->product->slug )}}">
+                                <img src="/laptop.jpg" alt="product image" width='50%' style="min-width:80px">
+                            </a>
                         </div>
                         <div class="col-3">
-                            <h5><strong>{{ $cartItem->product->name }}</strong> </h5>
+                            <h5 class="product-name"><strong>{{ $cartItem->product->name }}</strong> </h5>
                             {{ $cartItem->product->detales }}
                         </div>
                         <div class="col-3" style="padding-left:10%">

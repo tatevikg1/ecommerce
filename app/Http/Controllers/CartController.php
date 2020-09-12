@@ -19,6 +19,7 @@ class CartController extends Controller
     {
         // get the users cart id and find all his cartItems
         $cart = Cart::Current();
+
         $cartItems = CartItem::where('cart_id', $cart->id)
                             ->where('for_later', false)
                             ->with('product')

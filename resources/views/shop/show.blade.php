@@ -12,7 +12,7 @@
                 </div>
 
                 <div class="col-6">
-                    <h3><strong>{{ $product->name }}</strong> </h3>
+                    <h3 class="product-name"><strong>{{ $product->name }}</strong> </h3>
                     <p>{{ $product->detales }}</p>
                     <h3><strong>${{ $product->price }}</strong> </h3>
                     <p>{{ $product->description }}</p>

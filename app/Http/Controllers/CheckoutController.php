@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\CartItem;
+use App\Cart;
+use Cartalyst\Stripe\Laravel\Facades\Stripev;
 
 
 class CheckoutController extends Controller
@@ -23,6 +25,28 @@ class CheckoutController extends Controller
         })->where('for_later', false)->get();
 
         return view('checkout', compact('products'));
+    }
+
+    public function store(Request $request)
+    {
+        try {
+            $charge = Stripe::charges()->create([
+                'amount' => Cart::Current()->total_price,
+                'currency' => 'CAD',
+                'source' => $request->stripeToken,
+                'description' => 'Order',
+                'reciept_email' => $request->email,
+                'metadata' => [
+                    // 'cuntents' => $contents,
+                    // 'quantity' => Cart::Currrent()->count(),
+                ],]
+            );
+
+            return view('thankyou');
+
+        } catch (\Exception $e) {
+
+        }
     }
 
 

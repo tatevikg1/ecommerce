@@ -24,7 +24,7 @@ Route::get    ('/later',            'LaterController@index')->name('later.index'
 Route::delete ('/later/{cartItem}', 'LaterController@destroy')->name('later.destroy');
 
 Route::get('/checkout',     'CheckoutController@index')->name('checkout.index');
-Route::post('/checkout',    'CheckoutController@index')->name('checkout.post');
+Route::post('/checkout',    'CheckoutController@store')->name('checkout.store');
 
 Route::get('/thankyou', function(){
     return view('thankyou');
