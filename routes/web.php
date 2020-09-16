@@ -28,4 +28,4 @@ Route::post('/checkout',    'CheckoutController@store')->name('checkout.store');
 
 Route::get('/thankyou', function(){
     return view('thankyou');
-});
+})->name('thankyou');

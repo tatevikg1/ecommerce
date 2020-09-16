@@ -27,6 +27,10 @@
                     <input type="text" id="name" name="name" value="{{ auth()->user()->name }}" class="form-control" required>
                 </div>
                 <div class="form-group">
+                    <label for="country">Country</label>
+                    <input type="text" id="country" name="country" value="{{ old('country') }}" class="form-control" required>
+                </div>
+                <div class="form-group">
                     <label for="address">Address</label>
                     <input type="text" id="address" name="address" value="{{ old('address') }}" class="form-control" required>
                 </div>
@@ -61,7 +65,7 @@
                 </div>
 
                 <input type="hidden" name="user_id" value="{{ Auth::id() }}">
-                <input type="submit" name="" value="Complate Order" class="button button-black mb-5">
+                <button id="card-button" class="button button-black mb-5">Complate Order</button>
 
             </form>
         </div>
@@ -98,9 +102,9 @@
                 </div>
 
                 <div class="col-6" style="text-align:right;">
-                    <div class="">${{ ($product->price)*1 }}</div>
+                    <div class="">${{ $total }}</div>
                     <div class="">$0</div>
-                    <div> ${{ ($product->price)*1 }}</div>
+                    <div> ${{ $total }}</div>
                 </div>
             </div>
             <hr>

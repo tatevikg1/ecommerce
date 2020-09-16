@@ -12,9 +12,9 @@ var style = {
         color: '#343434',
         fontFamily: '"Noto Sans", Helvetica, sans-serif',
         fontSmoothing: 'antialiased',
-        fontSize: '16px',
+        fontSize: '14px',
         '::placeholder': {
-            color:' #aab7c4'
+            color:' #2a2724'
         }
     },
     invalid: {
@@ -53,7 +53,7 @@ form.addEventListener('submit', function(event) {
         address_city:document.getElementById('city').value,
         address_state:document.getElementById('province').value,
         address_zip:document.getElementById('postal_code').value,
-
+        address_country:document.getElementById('country').value
 
     }
 
