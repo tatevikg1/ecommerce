@@ -51,7 +51,7 @@
 
                         </div>
                         <div class="col-1">
-                            ${{ $cartItem->product->price }}
+                            {{ $cartItem->product->formatedPrice() }}
                         </div>
                     </div>
                     <hr>

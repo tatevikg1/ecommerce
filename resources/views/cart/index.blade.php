@@ -51,7 +51,7 @@
 
                         </div>
                         <div class="col-1">
-                            ${{ $cartItem->product->price }}
+                            {{ $cartItem->product->formatedPrice() }}
                         </div>
                     </div>
                     <hr>
@@ -73,9 +73,9 @@
             </div>
 
             <div class="col-3" style="text-align:right;">
-                <div class="">${{ $cart->total_price }}</div>
+                <div class="">{{ $cart->formatedPrice() }}</div>
                 <div class="">$0</div>
-                <div class=""><strong> ${{ $cart->total_price  }}</strong></div>
+                <div class=""><strong> {{ $cart->formatedPrice()  }}</strong></div>
             </div>
         </div>
 

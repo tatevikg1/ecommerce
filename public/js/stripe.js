@@ -134,7 +134,9 @@ card.on('change', function (event) {
 
 var form = document.getElementById('payment-form');
 form.addEventListener('submit', function (event) {
-  event.preventDefault();
+  event.preventDefault(); // disable the button so duble clicking will not submit twice
+
+  document.getElementById('card-button').disabled = true;
   var options = {
     name: document.getElementById('name_on_card').value,
     address_line1: document.getElementById('address').value,
@@ -147,7 +149,9 @@ form.addEventListener('submit', function (event) {
     if (result.error) {
       // Inform the user if there was an error.
       var errorElement = document.getElementById('card-errors');
-      errorElement.textContent = result.error.message;
+      errorElement.textContent = result.error.message; // if there was sn error enable the button so the user can submit the form again
+
+      document.getElementById('card-button').disabled = false;
     } else {
       // Send the token to your server.
       stripeTokenHandler(result.token);

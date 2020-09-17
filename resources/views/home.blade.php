@@ -46,7 +46,7 @@
                                 <a href="{{ route('shop.show', $product->slug) }}">
                                     <div class="product-name">{{ $product->name }}</div>
                                 </a>
-                                <div class="">${{ $product->price }}</div>
+                                <div class="">{{ $product->formatedPrice() }}</div>
                             </div>
                         @endforeach
 

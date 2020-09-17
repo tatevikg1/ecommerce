@@ -33,12 +33,22 @@ class Cart extends Model
         }
 
         return $this->update(['total_price' => $after ]);
+    }
 
+    public function empty()
+    {
+        Cart::Current()->update(['total_price' => 0]);
+        CartItem::where('cart_id', Cart::Current()->id)->where('for_later', false)->delete();
     }
 
     public static function Current()
     {
         return Cart::where('user_id', auth()->id())->first();
+    }
+
+    public function formatedPrice()
+    {
+        return money_format('$%i', $this->total_price / 100);
     }
 
 }

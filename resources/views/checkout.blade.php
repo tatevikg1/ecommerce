@@ -4,7 +4,14 @@
 
 
 <div class="container">
-    <h2 class="m-5"><strong>Checkout</strong> </h2>
+
+    @if(session()->has('errors'))
+        <div class="alert alert-danger">
+            {{ $errors->first() }}
+        </div>
+    @endif
+
+    <h2 class="m-3"><strong>Checkout</strong> </h2>
     <hr>
 
     <div class="d-flex">
