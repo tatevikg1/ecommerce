@@ -46,10 +46,8 @@
                             </div>
 
                         </div>
-                        <div class="col-2">
-                            <input type="number" min="1" max="100" size='1' value="1" >
+                        <quantity cart-item-id="{{ $cartItem->id }}" number="{{ $cartItem->quantity }}" ></quantity>
 
-                        </div>
                         <div class="col-1">
                             {{ $cartItem->product->formatedPrice() }}
                         </div>

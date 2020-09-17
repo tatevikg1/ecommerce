@@ -29,3 +29,6 @@ Route::post('/checkout',    'CheckoutController@store')->name('checkout.store');
 Route::get('/thankyou', function(){
     return view('thankyou');
 })->name('thankyou');
+
+
+Route::post   ('/update_quantity/{cartItemId}/{number}', 'VueController@updateQuantity');

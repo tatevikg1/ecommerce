@@ -11,9 +11,12 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+
     <!-- srtipe is for credit card charging -->
-    <script src="https://js.stripe.com/v3/"></script>
-    <script src="{{ asset('js/stripe.js') }}" defer></script>
+    @if(Route::currentRouteName() == 'checkout.index' || Route::currentRouteName() =='checkout.store')
+        <script src="https://js.stripe.com/v3/"></script>
+        <script src="{{ asset('js/stripe.js') }}" defer></script>
+    @endif
 
 
     <!-- Fonts -->
@@ -23,7 +26,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
 </head>
 <body>

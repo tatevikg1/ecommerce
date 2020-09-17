@@ -86,24 +86,4 @@ class CartController extends Controller
         return redirect()->route('cart.index')->with('success_message', 'Item was added to your cart.');
     }
 
-
-
-
-
-
-
-    // public function destroy(Request $request)
-    // {
-    //     $cart = Cart::where('user_id', auth()->id())->first();
-    //
-    //     // delete items in cart
-    //     CartItem::where('cart_id', $cart->id)->delete();
-    //     // reset the total_price
-    //     $cart->update(['total_price' => 0]);
-    //
-    //
-    //     return redirect()->route('cart.index');
-    // }
-
-
 }
