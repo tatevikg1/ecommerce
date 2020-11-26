@@ -20,8 +20,8 @@ use Illuminate\Support\Facades\Hash;
 
 $factory->define(User::class, function (Faker $faker) {
     return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
+        'name' => "User Useryan",  //$faker->name,
+        'email' => "user@gmail.com",  //$faker->unique()->safeEmail,
         'email_verified_at' => now(),
         'password' => Hash::make('password'),
         'remember_token' => Str::random(10),

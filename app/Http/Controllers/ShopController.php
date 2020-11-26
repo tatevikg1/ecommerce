@@ -8,16 +8,37 @@ use App\Category;
 
 class ShopController extends Controller
 {
-
-
     public function index()
     {
-        $products = Product::all();
+
         $categories = Category::all();
 
-        return view('shop.index' , compact('products', 'categories'));
-    }
+        if(request()->category){
 
+            $products = Product::whereIn('category_id', function($query){
+                $query->select('id')->from('categories')->
+                where('slug', request()->category)->first();
+            })->get();
+
+            $category_name = optional($categories->where('slug', request()->category)->first())->name;
+
+        }else{
+            $products = Product::all();
+            // dd($products);
+            $category_name = "All categories";
+        }
+
+        if(request()->sort == 'low_high'){
+
+            $products = $products->sortBy('price');
+
+        }elseif(request()->sort == 'high_low'){
+
+            $products = $products->sortByDesc('price');
+        }
+
+        return view('shop.index' , compact('products', 'categories', "category_name"));
+    }
 
 
     public function show($slug)

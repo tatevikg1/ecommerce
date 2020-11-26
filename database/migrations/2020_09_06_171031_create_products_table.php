@@ -20,6 +20,7 @@ class CreateProductsTable extends Migration
             $table->string('detales')->nullable();
             $table->integer('price');
             $table->string('description');
+            $table->foreignId('category_id');
             $table->timestamps();
         });
     }

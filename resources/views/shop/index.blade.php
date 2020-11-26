@@ -6,30 +6,30 @@
         <div class="row mt-5">
 
             <div class="col-12 d-flex">
-                <div class="col-3">
+                <div class="product col-3">
                     <h6><strong>By Category</strong></h6>
                     <ul style="list-style: none;padding:0">
                         @foreach($categories as $category)
-                            <li>{{ $category->name }}</li>
+                            <li class="{{ request()->category == $category->slug ? 'active' : ''}}" >
+                                <a href="{{ route('shop.index', ['category' => $category->slug])}}" class="product-name">{{ $category->name }}</a>
+                            </li>
                         @endforeach
 
                     </ul>
                     <h6><strong>By Price</strong></h6>
-                        <ul style="list-style: none;padding:0">
-                            <li>$0-$100</li>
-                            <li>$100-$200</li>
-                            <li>$200-$300</li>
-                            <li>$300+</li>
-                        </ul>
+                    <ul style="list-style: none;padding:0">
+                        <li><a href="{{ route('shop.index', ['category' => request()->category, 'sort' => 'high_low'])}}">From high to low</a></li>
+                        <li><a href="{{ route('shop.index', ['category' => request()->category, 'sort' => 'low_high'])}}">From low to high</a></li>
+                    </ul>
 
                 </div>
 
                 <div class="col-9">
-                    <h3 style="text-align:center"><strong>{{ $category->name }}</strong> </h3>
+                    <h3 style="text-align:center"><strong class="product-name">{{ $category_name }}</strong> </h3>
 
                     <div class="mt-5 d-flex flex-wrap justify-content-around">
 
-                        @foreach ($products as $product)
+                        @forelse ($products as $product)
                             <div class="product m-3">
                                 <a href="/shop/{{$product->slug}}">
                                     <img src="laptop.jpg" width="130px" alt="product">
@@ -39,11 +39,15 @@
                                 </a>
                                 <div class="product-price">{{ $product->formatedPrice() }}</div>
                             </div>
-                        @endforeach
+                        @empty
+                            <div class="">
+                                No items found.
+                            </div>
+                        @endforelse
+
                     </div>
+
                 </div>
-
-
             </div>
         </div>
     </div>

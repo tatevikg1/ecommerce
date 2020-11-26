@@ -11172,6 +11172,10 @@ header .top-nav-right {
   text-transform: capitalize;
 }
 
+li.active {
+  font-weight: bold;
+}
+
 .StripeElement {
   box-sizing: border-box;
   padding: 10px 12px;

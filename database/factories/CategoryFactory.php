@@ -11,5 +11,6 @@ $factory->define(Category::class, function (Faker $faker) {
 
     return [
         'name' => $faker->unique()->word,
+        'slug' => $faker->unique()->word,
     ];
 });
