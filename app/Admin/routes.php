@@ -2,6 +2,7 @@
 
 use Illuminate\Routing\Router;
 
+
 Admin::routes();
 
 Route::group([
@@ -13,4 +14,6 @@ Route::group([
 
     $router->get('/', 'HomeController@index')->name('home');
 
+    $router->resource('/categories', CategoryController::class);
+    $router->resource('/products',   ProductController::class);
 });

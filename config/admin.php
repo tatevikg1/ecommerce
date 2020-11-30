@@ -11,7 +11,7 @@ return [
     | login page.
     |
     */
-    'name' => 'Laravel-admin',
+    'name' => 'Admin',
 
     /*
     |--------------------------------------------------------------------------
@@ -275,7 +275,7 @@ return [
     |    "skin-red", "skin-red-light", "skin-black", "skin-black-light".
     |
     */
-    'skin' => 'skin-blue-light',
+    'skin' => 'skin-black',
 
     /*
     |--------------------------------------------------------------------------
@@ -289,7 +289,7 @@ return [
     | "sidebar-mini".
     |
     */
-    'layout' => ['sidebar-mini', 'sidebar-collapse'],
+    'layout' => ['layout-boxed', 'sidebar-mini'],
 
     /*
     |--------------------------------------------------------------------------
@@ -299,7 +299,7 @@ return [
     | This value is used to set the background image of login page.
     |
     */
-    'login_background_image' => '',
+    'login_background_image' => 'https://pbs.twimg.com/media/ENp7lbGUYAEeIvv.jpg',
 
     /*
     |--------------------------------------------------------------------------
