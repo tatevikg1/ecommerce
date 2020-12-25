@@ -26,8 +26,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-    <link rel="shortcut icon" href="/icon.png" type="image/x-icon">
-
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <div id="app">
