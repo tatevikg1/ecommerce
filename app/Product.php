@@ -1,9 +1,8 @@
 <?php
 
 namespace App;
-
+use NumberFormatter;
 use Illuminate\Database\Eloquent\Model;
-use App\Product;
 
 class Product extends Model
 {
@@ -11,7 +10,9 @@ class Product extends Model
 
     public function formatedPrice()
     {
-        return money_format('$%i', $this->price / 100);
+        $fmt_price = new NumberFormatter();
+        $fmt_price->formatCurrency($this->price, "EUR");
+        return $fmt_price;
     }
 
     public static function randomFour()
