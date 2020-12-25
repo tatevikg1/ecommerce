@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Product;
+use Illuminate\Support\Facades\Auth;
+// use App\Product;
 
 Route::get('/', function(){
     return redirect()->route('Home');
