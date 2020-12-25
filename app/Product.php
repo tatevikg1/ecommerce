@@ -10,9 +10,9 @@ class Product extends Model
 
     public function formatedPrice()
     {
-        $fmt_price = new NumberFormatter();
-        $fmt_price->formatCurrency($this->price, "EUR");
-        return $fmt_price;
+        $fmt_price = new NumberFormatter('en', NumberFormatter::CURRENCY);
+        
+        return $fmt_price->formatCurrency($this->price, "EUR");
     }
 
     public static function randomFour()
