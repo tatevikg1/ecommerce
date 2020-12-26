@@ -13,14 +13,14 @@ Auth::routes();
 Route::get('/home',   'HomeController@index')->name('Home');
 
 Route::get('/shop',         'ShopController@index')->name('shop.index');
-Route::get('/shop/{slug}',  'ShopController@show')->name('shop.show');
+Route::get('/shop/{slug}',  'ShopController@show') ->name('shop.show');
 
-Route::get    ('/cart',             'CartController@index')->name('cart.index');
-Route::post   ('/cart/{product}',   'CartController@store')->name('cart.store');
+Route::get    ('/cart',             'CartController@index') ->name('cart.index');
+Route::post   ('/cart/{product}',   'CartController@store') ->name('cart.store');
 Route::delete ('/cart/{cartItem}',  'CartController@destroy')->name('cart.destroy');
 Route::patch  ('/cart/{cartItem}',  'CartController@tocart')->name('cart.tocart');
 
-Route::post   ('/later/{cartItem}', 'LaterController@add')->name('later.add');
+Route::post   ('/later/{cartItem}', 'LaterController@add')  ->name('later.add');
 Route::get    ('/later',            'LaterController@index')->name('later.index');
 Route::delete ('/later/{cartItem}', 'LaterController@destroy')->name('later.destroy');
 

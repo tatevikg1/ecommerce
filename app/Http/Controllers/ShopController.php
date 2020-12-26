@@ -43,19 +43,8 @@ class ShopController extends Controller
 
     public function show($slug)
     {
-        if (!function_exists('dd')) {
-            function dd()
-            {
-                array_map(function($x) { 
-                    var_dump($x); 
-                }, func_get_args());
-                die;
-            }
-        }
         $randomFour = Product::randomFour()->get();
-        dd($randomFour);
         $product = Product::where('slug', $slug)->firstOrFail();
-
 
         return view('shop.show', compact('product', 'randomFour'));
     }
