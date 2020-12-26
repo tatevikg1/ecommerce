@@ -2,12 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
 
 class ShopController extends Controller
 {
+    /**
+     * Show the application homepage.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function index()
     {
 
@@ -40,12 +45,17 @@ class ShopController extends Controller
         return view('shop.index' , compact('products', 'categories', "category_name"));
     }
 
+     /**
+     * Show the product page.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
 
     public function show($slug)
     {
         $randomFour = Product::randomFour()->get();
         $product = Product::where('slug', $slug)->firstOrFail();
-
+        dd($product);
         return view('shop.show', compact('product', 'randomFour'));
     }
 
