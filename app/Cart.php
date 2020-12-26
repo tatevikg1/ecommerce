@@ -5,9 +5,12 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\User;
 use App\CartItem;
+use App\Traits\FormatedPrice;
 
 class Cart extends Model
 {
+    use FormatedPrice;
+
     protected $guarded = [];
 
     public function user()
@@ -44,11 +47,6 @@ class Cart extends Model
     public static function Current()
     {
         return Cart::where('user_id', auth()->id())->first();
-    }
-
-    public function formatedPrice()
-    {
-        return money_format('$%i', $this->total_price / 100);
     }
 
 }

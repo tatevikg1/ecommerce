@@ -1,19 +1,14 @@
 <?php
 
 namespace App;
-use NumberFormatter;
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\FormatedPrice;
 
 class Product extends Model
 {
-    protected $guarded = [];
+    use FormatedPrice;
 
-    public function formatedPrice()
-    {
-        $fmt_price = new NumberFormatter('en', NumberFormatter::CURRENCY);
-        
-        return $fmt_price->formatCurrency($this->price, "EUR");
-    }
+    protected $guarded = [];
 
     public static function randomFour()
     {
