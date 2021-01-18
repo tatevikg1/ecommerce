@@ -55,7 +55,6 @@ class ShopController extends Controller
     {
         $randomFour = Product::randomFour()->get();
         $product = Product::where('slug', $slug)->firstOrFail();
-        dd($product);
         return view('shop.show', compact('product', 'randomFour'));
     }
 
