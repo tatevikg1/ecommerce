@@ -82,19 +82,19 @@
             @foreach ($products as $product)
                 <div class="d-flex col-12 mb-3">
                     <div class="col-3">
-                        <img src="/laptop.jpg" alt="product image" width='90%'>
+                        <img src="{{ asset('storage/img/'.$product->product->image )}}"  width='90%'>
                     </div>
                     <div class="col-8">
                         <ul style="list-style: none;padding:0">
-                            <li><h5><strong>{{ $product->name }}</strong> </h5></li>
-                            <li>{{ $product->detales }}</li>
-                            <li>${{ $product->price }}</li>
+                            <li><h5><strong>{{ $product->product->name }}</strong> </h5></li>
+                            <li>{{ $product->product->detales }}</li>
+                            <li>${{ $product->product->price }}</li>
                         </ul>
 
                     </div>
 
                     <div class="col-1">
-                        1
+                    {{ $product->quantity }}
                     </div>
                 </div>
                 <hr>

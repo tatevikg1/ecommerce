@@ -32,7 +32,7 @@
                         @forelse ($products as $product)
                             <div class="product m-3">
                                 <a href="/shop/{{$product->slug}}">
-                                    <img src="laptop.jpg" width="130px" alt="product">
+                                    <img src="{{ asset('storage/img/'.$product->image )}}" width="130px" alt="product">
                                 </a>
                                 <a href="/shop/{{$product->slug}}">
                                     <div class="product-name">{{ $product->name }}</div>

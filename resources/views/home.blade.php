@@ -17,7 +17,7 @@
                         </div>
 
                         <div class="ta-image">
-                            <img src="laptop.jpg" alt="image" width='450px'>
+                            <img src="{{ asset('storage/img/'.$product->image )}}" alt="image" width='450px'>
                         </div>
                     </div>
                 </header>
@@ -41,7 +41,7 @@
                         @foreach ($products as $product)
                             <div class="product">
                                 <a href="{{ route('shop.show', $product->slug) }}">
-                                    <img src="laptop.jpg" width="130px" alt="product">
+                                    <img src="{{ asset('storage/img/'.$product->image )}}" width="130px" alt="product">
                                 </a>
                                 <a href="{{ route('shop.show', $product->slug) }}">
                                     <div class="product-name">{{ $product->name }}</div>
