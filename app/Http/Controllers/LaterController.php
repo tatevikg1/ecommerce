@@ -45,7 +45,7 @@ class LaterController extends Controller
         // update the total in cart
         $cart->updateTotalPrice(false, $cartItem->price, $cartItem->quantity);
 
-        return redirect()->route('later.index')->with('success_message', 'Item was added to your cart.');
+        return redirect()->route('later.index')->with('success_message', 'Item is saved for later.');
     }
 
     public function destroy(CartItem $cartItem)

@@ -13,11 +13,11 @@
         ],
 
 
-        data() {
-            return {
-                number: this.number,
-            };
-        },
+        // data() {
+        //     return {
+        //         number: this.number,
+        //     };
+        // },
 
         methods:{
             updateQuantity(){
