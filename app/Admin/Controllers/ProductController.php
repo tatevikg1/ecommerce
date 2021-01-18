@@ -98,6 +98,7 @@ class ProductController extends AdminController
         $form->text('slug', __('Slug'));
         $form->text('detales', __('Detales'));
         $form->number('price', __('Price'));
+        $form->image('image', __('Image'));
         $form->text('description', __('Description'));
         $form->number('category_id', __('Category ID'));
 

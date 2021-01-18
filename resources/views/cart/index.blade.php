@@ -95,11 +95,6 @@
 
         </div>
 
-        <div class="m-3 alert alert-success">
-            You have no items saved for later.
-        </div>
-
-
     </div>
     @include('layouts.randomFour')
 </div>

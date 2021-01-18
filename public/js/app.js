@@ -1916,11 +1916,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['cartItemId', 'number'],
-  data: function data() {
-    return {
-      number: this.number
-    };
-  },
   methods: {
     updateQuantity: function updateQuantity() {
       axios.post("/update_quantity/".concat(this.cartItemId, "/").concat(this.number)).then(function (response) {

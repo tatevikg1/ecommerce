@@ -12,13 +12,6 @@
 
         ],
 
-
-        // data() {
-        //     return {
-        //         number: this.number,
-        //     };
-        // },
-
         methods:{
             updateQuantity(){
                 axios.post(`/update_quantity/${this.cartItemId}/${this.number}`)
