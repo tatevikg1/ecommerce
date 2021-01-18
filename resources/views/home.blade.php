@@ -17,7 +17,7 @@
                         </div>
 
                         <div class="ta-image">
-                            <img src="{{ asset('storage/img/'.$product->image )}}" alt="image" width='450px'>
+                            <img src="laptop.jpg" alt="image" width='450px'>
                         </div>
                     </div>
                 </header>
