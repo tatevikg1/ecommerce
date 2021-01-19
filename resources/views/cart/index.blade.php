@@ -60,7 +60,7 @@
             <h3 class="alert alert-danger">No items in Cart</h3>
         @endif
 
-        <div class="col-12 d-flex mt-4 pt-5 pb-5" style="background-color:lightgray">
+        <div class="col-12 d-flex mt-4 pt-5 pb-5 spicy-bgr">
             <div class="col-6">
                 Delivery is free within the range of 10km and is 1$ for km after that.
             </div>

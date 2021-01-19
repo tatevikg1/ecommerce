@@ -33,3 +33,4 @@ Route::get('/thankyou', function(){
 
 
 Route::post   ('/update_quantity/{cartItemId}/{number}', 'VueController@updateQuantity');
+Route::post   ('/cart-items-quantity', 'VueController@getCartItemsQuantity');

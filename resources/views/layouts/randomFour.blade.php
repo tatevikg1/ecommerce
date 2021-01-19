@@ -1,4 +1,6 @@
-<h5 class="m-5"><strong>You may also like...</strong></h5>
+<hr>
+
+<h5 class="m-5 spicy"><strong>You may also like...</strong></h5>
 
 
 <div class="d-flex flex-wrap justify-content-around">
@@ -14,3 +16,4 @@
         </div>
     @endforeach
 </div>
+

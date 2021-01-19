@@ -27,4 +27,10 @@ class VueController extends Controller
 
         return $cartItem;
     }
+
+    public function getCartItemsQuantity()
+    {
+        $cart_id =  Cart::Current()->id;
+        return CartItem::where('cart_id', $cart_id)->sum('quantity');
+    }
 }

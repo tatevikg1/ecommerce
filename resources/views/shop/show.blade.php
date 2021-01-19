@@ -8,7 +8,9 @@
             <div class="col-12 d-flex">
 
                 <div class="col-6">
-                    <img src="{{ asset('storage/img/'.$product->image )}}" alt="product image" width="70%" style="border:1px solid black">
+                    <img src="{{ asset('storage/img/'.$product->image )}}" 
+                        alt="product image" width="70%" 
+                        class="p-3 img-thumbnail product-img">
                 </div>
 
                 <div class="col-6">
@@ -27,11 +29,11 @@
                     </div>
                 </div>
             </div>
-
         </div>
 
-
-        @include('layouts.randomFour')
+        <div class="pt-5">
+            @include('layouts.randomFour')
+        </div>
 
     </div>
 

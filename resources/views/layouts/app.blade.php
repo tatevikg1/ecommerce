@@ -71,10 +71,7 @@
                                 <a class="btn white-text-btn ml-5" href="/">ABOUT</a>
                             </li>
                             <li  class='btn-hover'>
-                                <a class="btn white-text-btn ml-5" href="{{ route('cart.index') }}">
-                                    CART
-                                    <span></span>
-                                </a>
+                                <Cart url="{{ route('cart.index') }}" cart-items-quantity=0></Cart>
                             </li>
                             <li class="nav-item dropdown ml-5">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
