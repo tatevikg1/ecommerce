@@ -3,7 +3,7 @@
 namespace App\Traits;
 use NumberFormatter;
 
-trait FormatedPrice
+trait Price
 {
     public function formatedPrice()
     {
@@ -13,5 +13,14 @@ trait FormatedPrice
         $fmt_price = new NumberFormatter('en', NumberFormatter::CURRENCY);
         
         return $fmt_price->formatCurrency($amount, "EUR");
+    }
+
+    public function originalPrice()
+    {
+        $originalPrice = ($this->price * 100) / (100 - $this->discount);
+
+        $fmt_price = new NumberFormatter('en', NumberFormatter::CURRENCY);
+        
+        return $fmt_price->formatCurrency($originalPrice, "EUR");
     }
 }

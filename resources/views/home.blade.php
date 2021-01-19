@@ -50,7 +50,9 @@
                                 <a href="{{ route('shop.show', $product->slug) }}">
                                     <div class="product-name">{{ $product->name }}</div>
                                 </a>
-                                <div class="">{{ $product->formatedPrice() }}</div>
+                                <div class="">
+                                    @include('layouts._price')
+                                </div>
                             </div>
                         @endforeach
 
@@ -66,5 +68,4 @@
 
 
         </div>
-        <!-- <script src="js/app.js"></script> -->
 @endsection

@@ -10,7 +10,7 @@
 
 @import 'components/layout.scss';
 @import 'components/buttons.scss';
-@import 'components/product.scss';
+// @import 'components/product.scss';
 @import 'components/form.scss';
 
 .white-bg{
@@ -58,4 +58,10 @@ hr{
 }
 .spicy-bgr{
     background-color: #c6e1d1;
+}
+
+.originalPrice{
+    -webkit-text-decoration-line: line-through; /* Safari */
+   text-decoration-line: line-through; 
+   color:red;
 }

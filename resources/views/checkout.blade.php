@@ -103,14 +103,10 @@
 
             <div class="col-12 d-flex">
                 <div class="col-6" style="position:relative; right:-8%">
-                    <div class="">Price for product</div>
-                    <div class="">Delivery</div>
                     <div class=""><strong>Total</strong> </div>
                 </div>
 
                 <div class="col-6" style="text-align:right;">
-                    <div class="">${{ $total }}</div>
-                    <div class="">$0</div>
                     <div> ${{ $total }}</div>
                 </div>
             </div>

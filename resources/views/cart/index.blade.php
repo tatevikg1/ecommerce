@@ -49,7 +49,7 @@
                         <quantity cart-item-id="{{ $cartItem->id }}" number="{{ $cartItem->quantity }}" ></quantity>
 
                         <div class="col-1">
-                            {{ $cartItem->product->formatedPrice() }}
+                            @include('layouts._cartItemPrice')
                         </div>
                     </div>
                     <hr>
@@ -60,19 +60,11 @@
             <h3 class="alert alert-danger">No items in Cart</h3>
         @endif
 
-        <div class="col-12 d-flex mt-4 pt-5 pb-5 spicy-bgr">
-            <div class="col-6">
-                Delivery is free within the range of 10km and is 1$ for km after that.
-            </div>
-            <div class="col-3" style="position:relative; right:-8%">
-                <div class="">Price for products</div>
-                <div class="">Delivery</div>
+        <div class="col-12  pt-3 pb-3 spicy-bgr">
+            
+            <div class="justify-content-between d-flex">              
                 <div class=""><strong>Total</strong> </div>
-            </div>
-
-            <div class="col-3" style="text-align:right;">
-                <div class="">{{ $cart->formatedPrice() }}</div>
-                <div class="">$0</div>
+                            
                 <div class=""><strong> {{ $cart->formatedPrice()  }}</strong></div>
             </div>
         </div>
@@ -96,7 +88,7 @@
         </div>
 
     </div>
-    @include('layouts.randomFour')
+    @include('layouts._randomFour')
 </div>
 
 

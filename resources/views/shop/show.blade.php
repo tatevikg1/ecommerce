@@ -16,7 +16,9 @@
                 <div class="col-6">
                     <h3 class="product-name"><strong>{{ $product->name }}</strong> </h3>
                     <p>{{ $product->detales }}</p>
-                    <h3><strong>{{ $product->formatedPrice() }}</strong> </h3>
+                    <h3><strong>
+                        @include('layouts._price')
+                    </strong> </h3>
                     <p>{{ $product->description }}</p>
 
                     <div class="ta-buttons mt-5">
@@ -32,7 +34,7 @@
         </div>
 
         <div class="pt-5">
-            @include('layouts.randomFour')
+            @include('layouts._randomFour')
         </div>
 
     </div>

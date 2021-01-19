@@ -2,11 +2,11 @@
 
 namespace App;
 use Illuminate\Database\Eloquent\Model;
-use App\Traits\FormatedPrice;
+use App\Traits\Price;
 
 class Product extends Model
 {
-    use FormatedPrice;
+    use Price;
 
     protected $guarded = [];
 

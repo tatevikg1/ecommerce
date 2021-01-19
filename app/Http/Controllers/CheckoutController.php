@@ -2,11 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Product;
 use App\CartItem;
 use App\Cart;
-use Cartalyst\Stripe\Laravel\Facades\Stripe;
 use Stripe\Exception\CardException;
 use App\Http\Requests\CheckoutRequest;
 

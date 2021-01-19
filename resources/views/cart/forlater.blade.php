@@ -51,8 +51,9 @@
 
                         </div>
                         <div class="col-1">
-                            {{ $cartItem->product->formatedPrice() }}
+                            @include('layouts._cartItemPrice')
                         </div>
+                        
                     </div>
                     <hr>
                 <?php endforeach; ?>

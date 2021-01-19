@@ -50,6 +50,7 @@ class ProductController extends AdminController
         $grid->column('slug', __('Slug'))->hide();
         $grid->column('detales', __('Detales'))->limit(20);
         $grid->column('price', __('Price'))->sortable();
+        $grid->column('discount', __('Discount'))->sortable();
         $grid->column('image', __('Image'));
         $grid->column('description', __('Description'))->display(function($description) {
             return Str::limit($description, 30, '...');
@@ -77,6 +78,7 @@ class ProductController extends AdminController
         $show->field('slug', __('Slug'));
         $show->field('detales', __('Detales'));
         $show->field('price', __('Price'));
+        $show->field('discount', __('Discount'));
         $show->field('image', __('Image'));
         $show->field('description', __('Description'));
         $show->field('category_id', __('Category ID'));
@@ -100,6 +102,7 @@ class ProductController extends AdminController
         $form->text('slug', __('Slug'));
         $form->text('detales', __('Detales'));
         $form->number('price', __('Price'));
+        $form->number('discount', __('Discount'));
         $form->image('image', __('Image'));
         $form->text('description', __('Description'));
         $form->number('category_id', __('Category ID'));

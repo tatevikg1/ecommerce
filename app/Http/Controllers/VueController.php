@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\CartItem;
 use App\Cart;
 
@@ -31,6 +30,6 @@ class VueController extends Controller
     public function getCartItemsQuantity()
     {
         $cart_id =  Cart::Current()->id;
-        return CartItem::where('cart_id', $cart_id)->sum('quantity');
+        return CartItem::where('cart_id', $cart_id)->where('for_later', false)->sum('quantity');
     }
 }
