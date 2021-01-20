@@ -10,8 +10,9 @@
 
 @import 'components/layout.scss';
 @import 'components/buttons.scss';
-// @import 'components/product.scss';
+@import 'components/product.scss';
 @import 'components/form.scss';
+@import 'components/admin.scss';
 
 .white-bg{
     background-color: $white;
@@ -19,7 +20,6 @@
 .bg-gray{
     background-color: $bg-gray;
 }
-
 
 .featured-section {
     padding: 50px 0;
@@ -49,19 +49,9 @@ hr{
     border:1px solid gray;
 }
 
-.product-img{
-    border:1px solid black;
-}
-
 .spicy{
     color:#b97539;
 }
 .spicy-bgr{
     background-color: #c6e1d1;
-}
-
-.originalPrice{
-    -webkit-text-decoration-line: line-through; /* Safari */
-   text-decoration-line: line-through; 
-   color:red;
 }

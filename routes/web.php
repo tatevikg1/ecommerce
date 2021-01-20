@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-// use App\Product;
 
 Route::get('/', function(){
     return redirect()->route('Home');
@@ -34,3 +33,8 @@ Route::get('/thankyou', function(){
 
 Route::post   ('/update_quantity/{cartItemId}/{number}', 'VueController@updateQuantity');
 Route::post   ('/cart-items-quantity', 'VueController@getCartItemsQuantity');
+
+
+Route::get      ('/admin/category', 'CategoryController@index')->name('admin.category.index');
+Route::post     ('/admin/category', 'CategoryController@store')->name('admin.category.store');
+Route::get      ('/admin/category/{category}', 'CategoryController@destroy')->name('admin.category.destroy');

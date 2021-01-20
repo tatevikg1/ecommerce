@@ -46,8 +46,6 @@
 // }
 
 
-
-// I added from hier
 .product-name{
     text-decoration: none;
     color:black;
@@ -55,4 +53,14 @@
 }
 li.active{
     font-weight: bold;
+}
+
+.product-img{
+    border:1px solid black;
+}
+
+.originalPrice{
+    -webkit-text-decoration-line: line-through; /* Safari */
+   text-decoration-line: line-through; 
+   color:red;
 }

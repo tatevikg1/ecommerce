@@ -21,6 +21,8 @@ window.Vue = require('vue');
 
 Vue.component('quantity', require('./components/Quantity.vue').default);
 Vue.component('cart', require('./components/Cart.vue').default);
+Vue.component('category', require('./components/Category.vue').default);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -29,4 +31,24 @@ Vue.component('cart', require('./components/Cart.vue').default);
 
 const app = new Vue({
     el: '#app',
+});
+
+document.getElementById('add').addEventListener('click',
+function(){
+    document.querySelector('.bg-modal').style.display = 'flex';
+});
+
+document.querySelector('.close').addEventListener('click',
+function(){
+    document.querySelector('.bg-modal').style.display = 'none';
+});
+
+document.querySelector('#addCategory').addEventListener('click',
+function(){
+
+    var url = '/admin/category';
+    var formData = $(form).serializeArray();
+    $.post(url, formData).done(function (data) {
+        document.querySelector('#inputCategory').value = '';
+    });
 });
