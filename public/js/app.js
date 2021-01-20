@@ -1947,19 +1947,65 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Category_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Category.vue */ "./resources/js/components/Category.vue");
 //
 //
 //
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['cartItemId', 'number'],
+  props: {
+    categories: Object
+  },
+  beforeMount: function beforeMount() {
+    this.getCategories();
+  },
+  data: function data() {
+    return {
+      cats: this.categories,
+      csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+    };
+  },
   methods: {
-    updateQuantity: function updateQuantity() {
-      axios.post("/update_quantity/".concat(this.cartItemId, "/").concat(this.number)).then(function (response) {
-        console.log(response);
-        window.location.href = '/cart';
+    getCategories: function getCategories() {
+      var _this = this;
+
+      axios.post('/admin/get-categories').then(function (response) {
+        _this.cats = response.data;
+      });
+    },
+    deleteCategory: function deleteCategory(id) {
+      var _this2 = this;
+
+      event.preventDefault();
+      axios["delete"]("/admin/category/".concat(id)).then(function (response) {
+        _this2.getCategories();
+
+        console.log('Category was deleted.');
       });
     }
   }
@@ -38257,31 +38303,70 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "col-2" }, [
-    _c("input", {
-      directives: [
-        {
-          name: "model",
-          rawName: "v-model",
-          value: _vm.number,
-          expression: "number"
-        }
+  return _c("div", { staticClass: "card-body" }, [
+    _c(
+      "table",
+      { staticClass: "table" },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _vm._l(_vm.cats, function(category) {
+          return _c(
+            "tr",
+            { key: category.id, ref: category.id, refInFor: true },
+            [
+              _c("td", [_vm._v(_vm._s(category.name.toUpperCase()))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(category.created_at))]),
+              _vm._v(" "),
+              _c("td", [
+                _c("form", { attrs: { method: "post" } }, [
+                  _c("input", {
+                    attrs: { type: "hidden", name: "_token" },
+                    domProps: { value: _vm.csrf }
+                  }),
+                  _vm._v(" "),
+                  _c("input", {
+                    attrs: { type: "hidden", name: "category" },
+                    domProps: { value: category.id }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "button button-black",
+                      on: {
+                        click: function($event) {
+                          return _vm.deleteCategory(category.id)
+                        }
+                      }
+                    },
+                    [_vm._v("Delete\n                    ")]
+                  )
+                ])
+              ])
+            ]
+          )
+        })
       ],
-      attrs: { type: "number", min: "1", max: "100", size: "1" },
-      domProps: { value: _vm.number },
-      on: {
-        change: _vm.updateQuantity,
-        input: function($event) {
-          if ($event.target.composing) {
-            return
-          }
-          _vm.number = $event.target.value
-        }
-      }
-    })
+      2
+    )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("th", [_vm._v("Category")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Created at")]),
+      _vm._v(" "),
+      _c("th", { attrs: { colspan: "2" } }, [_vm._v("Action")])
+    ])
+  }
+]
 render._withStripped = true
 
 

@@ -35,6 +35,11 @@ Route::post   ('/update_quantity/{cartItemId}/{number}', 'VueController@updateQu
 Route::post   ('/cart-items-quantity', 'VueController@getCartItemsQuantity');
 
 
-Route::get      ('/admin/category', 'CategoryController@index')->name('admin.category.index');
-Route::post     ('/admin/category', 'CategoryController@store')->name('admin.category.store');
-Route::get      ('/admin/category/{category}', 'CategoryController@destroy')->name('admin.category.destroy');
+Route::get      ('/admin/category',             'CategoryController@index')->name('admin.category.index');
+Route::delete   ('/admin/category/{category}',  'CategoryController@destroy')->name('admin.category.destroy');
+Route::post     ('/admin/category',             'CategoryController@store')->name('admin.category.store');
+
+
+Route::post ('/admin/get-categories', function(){
+    return App\Category::getCategories();
+});

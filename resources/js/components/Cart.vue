@@ -1,10 +1,10 @@
 <template>
+
     <div class="cart">
         <a class="btn white-text-btn ml-5" v-bind:href="url">
             CART
         </a>
         <span class="quantity">{{ cartItemsQuantity }}</span>
-
     </div>
    
 </template>

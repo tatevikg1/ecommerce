@@ -12,28 +12,7 @@
                     <div class="button button-black" id="add">Add</div>
                 </div>
 
-                <div class="card-body">
-                    <table class="table">
-                        <tr>
-                            <th>Category</th>
-                            <th>Created at</th>
-                            <th colspan="2">Action</th>
-                        </tr>
-
-                        <?php foreach ($categories as $category): ?>
-                            <tr class="table_row">
-                                <td>{{ ucfirst($category->name) }}</td>
-                                <td>{{ $category->created_at }}</td>
-                                <td><a href="{{ route('admin.category.destroy', ['category' => $category->id])}}" class="button button-black">
-                                        Delete
-                                    </a>
-                                </td>                         
-                            </tr>
-                        <?php endforeach; ?>
-
-                    </table>
-                </div>
-
+                <Category></Category>
             </div>
         </div>
     </div>

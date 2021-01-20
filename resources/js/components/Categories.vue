@@ -8,18 +8,8 @@
             </tr>
             <tr v-for="category  in cats" :key="category.id" :ref="category.id">
 
-                <td>{{ category.name.toUpperCase() }}</td>
-                <td>{{ category.created_at }}</td>
-                <td>
-                    <form method="post">
-                        <input type="hidden" name="_token" :value="csrf">
-                        <input type="hidden" name="category" :value="category.id">
-
-                        <button @click="deleteCategory(category.id)"
-                                class="button button-black">Delete
-                        </button>
-                    </form>
-                </td> 
+                <Category :category="category"></Category>
+                 
             </tr>
         </table>
     </div>
@@ -29,6 +19,7 @@
 <script>
 
     import Category from './Category.vue';
+    
     export default{
         props: {
             categories: Object,
