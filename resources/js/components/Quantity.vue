@@ -16,7 +16,6 @@
             updateQuantity(){
                 axios.post(`/update_quantity/${this.cartItemId}/${this.number}`)
                 .then((response) => {
-                    console.log(response);
                     window.location.href = '/cart';
                 })
             },

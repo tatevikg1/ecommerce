@@ -25,7 +25,7 @@
                 axios.post('/cart-items-quantity')
                 .then((response) => {
                     this.cartItemsQuantity = response.data;
-                    console.log(response);
+                    // console.log(response);
                 })
             },
         }

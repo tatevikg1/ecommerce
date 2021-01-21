@@ -113,10 +113,7 @@
             <hr>
         </div>
     </div>
-
-
 </div>
-
 
 
 @endsection

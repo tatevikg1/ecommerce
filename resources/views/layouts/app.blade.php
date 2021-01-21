@@ -17,7 +17,9 @@
         <script src="https://js.stripe.com/v3/"></script>
         <script src="{{ asset('js/stripe.js') }}" defer></script>
     @endif
-
+    <!-- @if(Route::currentRouteName() == 'admin.product.index' || Route::currentRouteName() =='admin.product.store')
+        <script src="{{ asset('js/product.js') }}" defer></script>
+    @endif -->
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">

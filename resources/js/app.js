@@ -21,7 +21,8 @@ window.Vue = require('vue');
 
 Vue.component('quantity', require('./components/Quantity.vue').default);
 Vue.component('cart', require('./components/Cart.vue').default);
-Vue.component('category', require('./components/Category.vue').default);
+Vue.component('categories-table', require('./components/CategoriesTable.vue').default);
+Vue.component('products-table', require('./components/ProductsTable.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -33,22 +34,37 @@ const app = new Vue({
     el: '#app',
 });
 
-document.getElementById('add').addEventListener('click',
-function(){
-    document.querySelector('.bg-modal').style.display = 'flex';
-});
+if(window.location.pathname == '/admin/category')
+{
 
-document.querySelector('.close').addEventListener('click',
-function(){
-    document.querySelector('.bg-modal').style.display = 'none';
-});
-
-document.querySelector('#addCategory').addEventListener('click',
-function(){
-
-    var url = '/admin/category';
-    var formData = $(form).serializeArray();
-    $.post(url, formData).done(function (data) {
-        document.querySelector('#inputCategory').value = '';
+    document.getElementById('add').addEventListener('click',
+    function(){
+        document.querySelector('.bg-modal').style.display = 'flex';
     });
-});
+
+    document.querySelector('.close').addEventListener('click',
+    function(){
+        document.querySelector('.bg-modal').style.display = 'none';
+        app.$refs.categories.getCategories();
+    });
+
+    document.querySelector('#addCategory').addEventListener('click',
+    function(){
+
+        var url = '/admin/category';
+        var formData = $(addCategoryForm).serializeArray();
+        $.post(url, formData).done(function (data) {
+            document.querySelector('#category').value = '';
+            document.getElementById('addCategoryError').innerHTML = '';
+            // $("#addCategoryError").html("");
+        })
+        .fail(function(response){
+            $.each(response.responseJSON.errors, function(field_name, error){
+                document.getElementById('addCategoryError').innerHTML = error;
+            })
+        });
+
+        document.querySelector('#category').focus();
+    });
+};
+

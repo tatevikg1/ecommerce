@@ -8,27 +8,17 @@
             <div class="card">
 
                 <div class="card-header justify-content-between d-flex ">
-                    <div>{{ __('Categories') }}</div>
-                    <div class="button button-black" id="add">Add</div>
+                    <h4>{{ __('Categories') }}</h4>
+                    <div class="button button-black" id="add" style="padding: 12px 40px;">Add</div>
                 </div>
 
-                <Category></Category>
+                <categories-table  ref="categories"></categories-table>
             </div>
         </div>
     </div>
 </div>
 
-<div class="bg-modal">
-    <div class="modal-content">
-        <div class="close">+</div>
-        <h5 class="text-center">Add category</h5>
-        <form method="post" id='form'>
-            @csrf
-            <input type="text" placeholder="category name" class="form-control" name="category" id="inputCategory">
-            <div  class="button button-black" id="addCategory">Add</div>
-        </form>
-    </div>
-</div>
+@include('partial._addCategoryForm')
 
 
 @endsection

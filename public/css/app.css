@@ -11088,25 +11088,69 @@ li.active {
   display: none;
 }
 
-.modal-content {
-  width: 300px;
-  height: 300px;
+.bg-modal .modal-content {
+  width: 400px;
+  height: 250px;
   background-color: white;
   padding: 20px;
 }
 
-.modal-content input {
+.bg-modal .modal-content input {
   width: 100%;
   margin-top: 20%;
 }
 
-.modal-content .close {
+.bg-modal .modal-content .close {
   position: absolute;
   top: 0;
   right: 12px;
   font-size: 40px;
   transform: rotate(45deg);
   color: black;
+  cursor: pointer;
+}
+
+.bg-modal .modal-content #addCategory {
+  cursor: pointer;
+}
+
+.bg-modal-product {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  display: none;
+}
+
+.bg-modal-product .modal-content-product {
+  width: 60%;
+  height: 80%;
+  max-height: 600px;
+  overflow: scroll;
+  background-color: white;
+  padding: 20px;
+}
+
+.bg-modal-product .modal-content-product .closeAddProduct {
+  position: absolute;
+  top: 0;
+  right: 12px;
+  font-size: 40px;
+  transform: rotate(45deg);
+  color: white;
+  cursor: pointer;
+}
+
+.bg-modal-product .modal-content-product div {
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+#addProduct {
   cursor: pointer;
 }
 
