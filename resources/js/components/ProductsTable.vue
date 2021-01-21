@@ -1,16 +1,21 @@
 <template>
-    <div class="card-body">
-        <table class="table  table-dark table-bordered table-hover">
+    <div class="">
+        <table class="table table-bordered table-hover table-sm">
             <thead>
                 <tr>
-                    <th>Category</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Detales</th>
+                    <th>Description</th>
+                    <th>Image</th>
+                    <th>Discount</th>
                     <th>Created at</th>
-                    <th colspan="2">Action</th>
+                    <th >Action</th>
                 </tr>
             </thead>
             
-            <tbody v-for="category  in categories" :key="category.id" class="">
-                <Product :category="category"></Product>
+            <tbody v-for="product  in products" :key="product.id" class="">
+                <Product :product="product"></Product>
             </tbody>
         </table>
     </div>
@@ -20,22 +25,21 @@
 
     export default{
 
-
         beforeMount(){
-            this.getCategories();
+            this.getProducts();
         },
 
         data: function () {
             return {
-                categories: this.categories,
+                products: this.products,
             }
         },
 
         methods:{
-            getCategories: function(){
-                axios.post('/admin/get-categories')
+            getProducts: function(){
+                axios.post('/admin/get-products')
                 .then((response) => {
-                    this.categories = response.data;
+                    this.products = response.data;
                 })
             }
         },
@@ -43,3 +47,80 @@
         components:{ Product: () => import('./Product.vue') }
     }
 </script>
+
+<style>
+table { 
+    width: 100%; 
+    /* border-collapse: collapse;  */
+    /* color:black; */
+}
+/* Zebra striping */
+tr:nth-of-type(odd) { 
+    background: #eee; 
+}
+th { 
+    background: #485160; 
+    color: white; 
+    font-weight: bold; 
+}
+td, th { 
+    padding: 6px; 
+    border: 1px solid #ccc; 
+    text-align: left; 
+}
+
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+    /* Force table to not be like tables anymore */
+    table, thead, tbody, th, td, tr { 
+        display: block; 
+    }
+
+    tbody, tr{
+        text-align: right;
+    }
+    
+    /* Hide table headers (but not display: none;, for accessibility) */
+    thead tr { 
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    
+    tr { border: 1px solid #ccc; }
+    
+    td { 
+        /* Behave  like a "row" */
+        border: none;
+        border-bottom: 1px solid #eee; 
+        position: relative;
+        padding-left: 50%; 
+        vertical-align: middle;
+    }
+    
+    td:before { 
+        /* Now like a table header */
+        position: absolute;
+        /* Top/left values mimic padding */
+        top: 6px;
+        left: 6px;
+        width: 45%; 
+        padding-right: 10px; 
+        white-space: nowrap;
+    }
+    
+    /*
+    Label the data
+    */
+    td:nth-of-type(1):before { content: "Name "; text-align: left; font-weight: bold; }
+    td:nth-of-type(2):before { content: "Price"; text-align: left; font-weight: bold; }
+    td:nth-of-type(3):before { content: "Detales"; text-align: left; font-weight: bold; }
+    td:nth-of-type(4):before { content: "";  }
+    td:nth-of-type(5):before { content: "Image"; text-align: left; font-weight: bold; }
+    td:nth-of-type(6):before { content: "Discount"; text-align: left; font-weight: bold; }
+    td:nth-of-type(7):before { content: "Created at"; text-align: left; font-weight: bold; }
+    td:nth-of-type(8):before { content: "Action"; text-align: left; font-weight: bold; }
+}
+</style>

@@ -41,7 +41,12 @@ Route::post     ('/admin/category',             'CategoryController@store')->nam
 
 Route::get      ('/admin/product', 'ProductController@index')->name('admin.product.index');
 Route::post     ('/admin/product', 'ProductController@store')->name('admin.product.store');
+Route::delete   ('/admin/product/{product}',  'ProductController@destroy')->name('admin.product.destroy');
 
 Route::post ('/admin/get-categories', function(){
     return App\Category::getCategories();
+});
+
+Route::post ('/admin/get-products', function(){
+    return App\Product::all();
 });

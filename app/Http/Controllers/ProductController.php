@@ -21,13 +21,13 @@ class ProductController extends Controller
         $request->validated();
         $slug = str_replace(' ', '-', strtolower($request['name']));
         
-        Category::create([
+        Product::create([
             'name' => $request['name'],
             'slug' => $slug,
             'price' => $request['price'],
             'detales' => $request['detales'],
             'description' => $request['description'],
-            'category' => $request['category'],
+            'category_id' => $request['category'],
             'image' => $request['image']
         ]);
 

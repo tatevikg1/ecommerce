@@ -26,9 +26,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    category: {
+    product: {
       required: true
     }
   },
@@ -39,11 +55,11 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    deleteCategory: function deleteCategory(id) {
+    deleteProduct: function deleteProduct(id) {
       event.preventDefault();
       this.visible = false;
-      axios["delete"]("/admin/category/".concat(id)).then(function (response) {
-        console.log('Category was deleted.');
+      axios["delete"]("/admin/product/".concat(id)).then(function (response) {
+        console.log('Product was deleted.');
       })["catch"](function (error) {
         console.log('Delete request is made twice. Dont pay attention ;)');
       });
@@ -65,7 +81,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.button{\n    padding:5px;\n    padding-left: 10px;\n    padding-right: 10px;\n}\n\n", ""]);
+exports.push([module.i, "\n.button{\n    padding:5px;\n    padding-left: 10px;\n    padding-right: 10px;\n}\ntd {\n    text-align: right; \n    vertical-align: middle;\n}\n\n", ""]);
 
 // exports
 
@@ -131,40 +147,71 @@ var render = function() {
       staticClass: "table-body"
     },
     [
-      _c("td", [_vm._v(_vm._s(_vm.category.name.toUpperCase()))]),
+      _c("td", [_vm._v(_vm._s(_vm.product.name.toUpperCase()))]),
       _vm._v(" "),
-      _c("td", [_vm._v(_vm._s(_vm.category.created_at))]),
+      _c("td", [_vm._v("$" + _vm._s(_vm.product.price))]),
+      _vm._v(" "),
+      _c("td", [_vm._v(_vm._s(_vm.product.detales))]),
+      _vm._v(" "),
+      _c("td", [_vm._v(_vm._s(_vm.product.description))]),
+      _vm._v(" "),
+      _c("td", [_vm._v(_vm._s(_vm.product.image.slice(0, 5)) + "...")]),
+      _vm._v(" "),
+      _c("td", [_vm._v(_vm._s(_vm.product.discount) + "%")]),
+      _vm._v(" "),
+      _c("td", [_vm._v(_vm._s(_vm.product.created_at.slice(0, 10)))]),
       _vm._v(" "),
       _c("td", [
-        _c("form", { attrs: { method: "post" } }, [
-          _c("input", {
-            attrs: { type: "hidden", name: "_token" },
-            domProps: { value: _vm.csrf }
-          }),
-          _vm._v(" "),
-          _c("input", {
-            attrs: { type: "hidden", name: "category" },
-            domProps: { value: _vm.category.id }
-          }),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "button button-black",
-              on: {
-                click: function($event) {
-                  return _vm.deleteCategory(_vm.category.id)
-                }
-              }
-            },
-            [_vm._v("Delete\n            ")]
-          )
-        ])
+        _c("tr", [
+          _c("td", [
+            _c("form", { attrs: { method: "post" } }, [
+              _c("input", {
+                attrs: { type: "hidden", name: "_token" },
+                domProps: { value: _vm.csrf }
+              }),
+              _vm._v(" "),
+              _c("input", {
+                attrs: { type: "hidden", name: "product" },
+                domProps: { value: _vm.product.id }
+              }),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "button button-black",
+                  on: {
+                    click: function($event) {
+                      return _vm.deleteProduct(_vm.product.id)
+                    }
+                  }
+                },
+                [_vm._v("Delete\n                    ")]
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _vm._m(0)
       ])
     ]
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("td", [
+        _c(
+          "a",
+          { staticClass: "button button-black mt-5", attrs: { href: "" } },
+          [_vm._v("Edit")]
+        )
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 

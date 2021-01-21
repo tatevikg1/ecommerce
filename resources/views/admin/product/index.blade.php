@@ -12,7 +12,7 @@
                     <div class="button button-black" id="addProduct" style="padding: 12px 40px;">Add</div>
                 </div>
 
-                <!-- <products-table  ref="foo"></products-table> -->
+                <products-table  ref="products"></products-table>
             </div>
         </div>
     </div>
