@@ -1,7 +1,7 @@
 <template>
     <tr class="table-body" v-show="visible">
         <td>{{ category.name.toUpperCase() }}</td>
-        <td>{{ category.created_at }}</td>
+        <td>{{ category.created_at.slice(0, 10) }}</td>
         <td>
             <form method="post">
                 <input type="hidden" name="_token" :value="csrf">
@@ -47,7 +47,11 @@
 </script>
 
 <style>
-.button{
+.table-categories td {
+    text-align: right; 
+    vertical-align: middle;
+}
+.table-categories  .button{
     padding:5px;
     padding-left: 10px;
     padding-right: 10px;

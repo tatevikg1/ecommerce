@@ -10897,6 +10897,7 @@ a.text-dark:focus {
 header.with-background {
   background-size: cover;
   color: #e9e9e9;
+  background-color: #485160;
 }
 
 header.with-background .top-nav {

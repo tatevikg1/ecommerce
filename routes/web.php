@@ -25,23 +25,18 @@ Route::delete ('/later/{cartItem}', 'LaterController@destroy')->name('later.dest
 
 Route::get('/checkout',     'CheckoutController@index')->name('checkout.index');
 Route::post('/checkout',    'CheckoutController@store')->name('checkout.store');
-
-Route::get('/thankyou', function(){
-    return view('thankyou');
-})->name('thankyou');
-
+Route::get('/thankyou', function(){ return view('thankyou');})->name('thankyou');
 
 Route::post   ('/update_quantity/{cartItemId}/{number}', 'VueController@updateQuantity');
 Route::post   ('/cart-items-quantity', 'VueController@getCartItemsQuantity');
 
+Route::get      ('/admin/category',             'Admin\CategoryController@index')->name('admin.category.index');
+Route::delete   ('/admin/category/{category}',  'Admin\CategoryController@destroy')->name('admin.category.destroy');
+Route::post     ('/admin/category',             'Admin\CategoryController@store')->name('admin.category.store');
 
-Route::get      ('/admin/category',             'CategoryController@index')->name('admin.category.index');
-Route::delete   ('/admin/category/{category}',  'CategoryController@destroy')->name('admin.category.destroy');
-Route::post     ('/admin/category',             'CategoryController@store')->name('admin.category.store');
-
-Route::get      ('/admin/product', 'ProductController@index')->name('admin.product.index');
-Route::post     ('/admin/product', 'ProductController@store')->name('admin.product.store');
-Route::delete   ('/admin/product/{product}',  'ProductController@destroy')->name('admin.product.destroy');
+Route::get      ('/admin/product',              'Admin\ProductController@index')->name('admin.product.index');
+Route::post     ('/admin/product',              'Admin\ProductController@store')->name('admin.product.store');
+Route::delete   ('/admin/product/{product}',    'Admin\ProductController@destroy')->name('admin.product.destroy');
 
 Route::post ('/admin/get-categories', function(){
     return App\Category::getCategories();

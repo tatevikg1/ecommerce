@@ -65,7 +65,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.button{\n    padding:5px;\n    padding-left: 10px;\n    padding-right: 10px;\n}\n\n", ""]);
+exports.push([module.i, "\n.table-categories td {\n    text-align: right; \n    vertical-align: middle;\n}\n.table-categories  .button{\n    padding:5px;\n    padding-left: 10px;\n    padding-right: 10px;\n}\n\n", ""]);
 
 // exports
 
@@ -133,7 +133,7 @@ var render = function() {
     [
       _c("td", [_vm._v(_vm._s(_vm.category.name.toUpperCase()))]),
       _vm._v(" "),
-      _c("td", [_vm._v(_vm._s(_vm.category.created_at))]),
+      _c("td", [_vm._v(_vm._s(_vm.category.created_at.slice(0, 10)))]),
       _vm._v(" "),
       _c("td", [
         _c("form", { attrs: { method: "post" } }, [

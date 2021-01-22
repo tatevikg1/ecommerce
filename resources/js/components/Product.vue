@@ -8,25 +8,19 @@
         <td >{{ product.discount }}%</td>
         <td >{{ product.created_at.slice(0, 10)  }}</td>
         <td>
-            <tr>
-                <td>
-                    <form method="post">
-                        <input type="hidden" name="_token" :value="csrf">
-                        <input type="hidden" name="product" :value="product.id">
+            <p style="margin:0px">
+                <form method="post">
+                    <input type="hidden" name="_token" :value="csrf">
+                    <input type="hidden" name="product" :value="product.id">
 
-                        <button @click="deleteProduct(product.id)"
-                                class="button button-black">Delete
-                        </button>
-                    </form>
-                </td>
-                
-            </tr>
-            <tr>
-                <td>
-                    <a href="" class="button button-black mt-5">Edit</a>
-                </td>
-            </tr>
-            
+                    <button @click="deleteProduct(product.id)"
+                            class="button button-black">Delete
+                    </button>
+                </form>
+            </p>
+            <p style="margin:4px">
+                <a href="" class="button button-black mt-5">Edit</a>
+            </p>
         </td> 
     </tr>
 </template>
@@ -62,16 +56,16 @@
     }
 </script>
 
-<style>
-.button{
+<style lang="scss">
+.table-products{
+    td {
+    text-align: right; 
+    vertical-align: middle;
+    }
+    .button{
     padding:5px;
     padding-left: 10px;
     padding-right: 10px;
+    }
 }
-
-td {
-    text-align: right; 
-    vertical-align: middle;
-}
-
 </style>
