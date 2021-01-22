@@ -17,15 +17,8 @@
 </template>
 
 <script>
-    // import Category from './Category.vue';
 
     export default{
-        // props: {
-        //     categories:{
-        //         type: Array,
-        //         required: true
-        //     }
-        // },
 
         beforeMount(){
             this.getCategories();

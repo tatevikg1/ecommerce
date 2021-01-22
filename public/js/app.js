@@ -2032,10 +2032,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['url', 'cartItemsQuantity'],
+  props: ['url'],
+  data: function data() {
+    return {
+      cartItemsQuantity: this.cartItemsQuantity
+    };
+  },
   beforeMount: function beforeMount() {
     this.updateCartItemsQuantity();
   },
@@ -2079,14 +2082,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-// import Category from './Category.vue';
 /* harmony default export */ __webpack_exports__["default"] = ({
-  // props: {
-  //     categories:{
-  //         type: Array,
-  //         required: true
-  //     }
-  // },
   beforeMount: function beforeMount() {
     this.getCategories();
   },
@@ -38480,7 +38476,7 @@ var render = function() {
     _c(
       "a",
       { staticClass: "btn white-text-btn ml-5", attrs: { href: _vm.url } },
-      [_vm._v("\n        CART\n    ")]
+      [_vm._v("CART")]
     ),
     _vm._v(" "),
     _c("span", { staticClass: "quantity" }, [

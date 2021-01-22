@@ -1,9 +1,7 @@
 <template>
 
     <div class="cart">
-        <a class="btn white-text-btn ml-5" v-bind:href="url">
-            CART
-        </a>
+        <a class="btn white-text-btn ml-5" v-bind:href="url">CART</a>
         <span class="quantity">{{ cartItemsQuantity }}</span>
     </div>
    
@@ -13,8 +11,13 @@
     export default {
         props: [
             'url',
-            'cartItemsQuantity'
         ],
+
+        data: function () {
+            return {
+                cartItemsQuantity: this.cartItemsQuantity,
+            }
+        },
 
         beforeMount(){
             this.updateCartItemsQuantity();
