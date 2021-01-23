@@ -19,6 +19,6 @@
     </div>
 </div>
 
-@include('partial._addProductForm')
+@include('admin.product._addProductForm')
 
 @endsection

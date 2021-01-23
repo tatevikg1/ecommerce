@@ -38,7 +38,7 @@
 
                             </div>
                             <div class="">
-                                <form  action="{{ route('later.add', $cartItem) }}" method="post">
+                                <form  action="{{ route('later.update', $cartItem) }}" method="post">
                                     @csrf
                                     @method('post')
 
@@ -50,7 +50,7 @@
                         <quantity cart-item-id="{{ $cartItem->id }}" number="{{ $cartItem->quantity }}" ></quantity>
 
                         <div class="col-1">
-                            @include('layouts._cartItemPrice')
+                            @include('partials._cartItemPrice')
                         </div>
                     </div>
                     <hr>
@@ -72,12 +72,12 @@
 
         <div class="mb-5 mt-5 d-flex justify-content-between">
             <div class="ta-buttons">
-                <a href="/shop" class="button button-black">Continue Shoping</a>
+                <a href="{{ route('shop.index') }}" class="button button-black">Continue Shoping</a>
             </div>
 
             @if(count($cartItems) > 0)
                 <div class="ta-buttons">
-                    <a href="/checkout" class="button button-black">Checkout</a>
+                    <a href="{{ route('checkout.show') }}" class="button button-black">Checkout</a>
                 </div>
             @endif
 
@@ -89,7 +89,7 @@
         </div>
 
     </div>
-    @include('layouts._randomFour')
+    @include('partials._randomFour')
 </div>
 
 

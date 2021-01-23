@@ -43,20 +43,21 @@
                     <ul class="navbar-nav mr-auto">
                     @if (auth()->check())
                         @if (auth()->user()->id == 1)
-                            <a class="navbar-brand app-name" href="/admin">Administration</a> 
+                            <a class="navbar-brand app-name" href="{{ route('admin.index') }}">Administration</a> 
                         @endif
                     @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+                        <li  class='btn-hover'>
+                            <a class="btn white-text-btn ml-3" href="{{ route('shop.index') }}">SHOP</a>
+                        </li>
+                        <li  class='btn-hover'>
+                            <a class="btn white-text-btn ml-3" href="/">ABOUT</a>
+                        </li>
                         @guest
-                            <li  class='btn-hover'>
-                                <a class="btn white-text-btn ml-3" href="/shop">SHOP</a>
-                            </li>
-                            <li  class='btn-hover'>
-                                <a class="btn white-text-btn ml-3" href="/">ABOUT</a>
-                            </li>
+                            
                             <li class="nav-item">
                                 <a class="nav-link"  style="color:white" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
@@ -66,13 +67,6 @@
                                 </li>
                             @endif
                         @else
-                            <li  class='btn-hover'>
-                                <strong><a class="btn white-text-btn ml-5" href="/shop">SHOP</a></strong>
-
-                            </li>
-                            <li  class='btn-hover'>
-                                <a class="btn white-text-btn ml-5" href="/">ABOUT</a>
-                            </li>
                             <li  class='btn-hover'>
                                 <Cart url="{{ route('cart.index') }}" cart-items-quantity=0></Cart>
                             </li>

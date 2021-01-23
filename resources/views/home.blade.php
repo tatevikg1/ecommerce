@@ -51,7 +51,7 @@
                                     <div class="product-name">{{ $product->name }}</div>
                                 </a>
                                 <div class="">
-                                    @include('layouts._price')
+                                    @include('partials._price')
                                 </div>
                             </div>
                         @endforeach

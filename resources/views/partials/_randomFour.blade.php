@@ -15,7 +15,7 @@
             <a href="/shop/{{$product->slug}}">
                 <div class="product-name">{{ $product->name }}</div>
             </a>
-            <div class="product-price">@include('layouts._price')</div>
+            <div class="product-price">@include('partials._price')</div>
         </div>
     @endforeach
 </div>

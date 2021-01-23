@@ -17,7 +17,7 @@
                     <h3 class="product-name"><strong>{{ $product->name }}</strong> </h3>
                     <p>{{ $product->detales }}</p>
                     <h3><strong>
-                        @include('layouts._price')
+                        @include('partials._price')
                     </strong> </h3>
                     <p>{{ $product->description }}</p>
 
@@ -34,7 +34,7 @@
         </div>
 
         <div class="pt-5">
-            @include('layouts._randomFour')
+            @include('partials._randomFour')
         </div>
 
     </div>

@@ -39,7 +39,7 @@
 
                             </div>
                             <div class="">
-                                <form  action="{{ route('cart.tocart', $cartItem->id) }}" method="post">
+                                <form  action="{{ route('cart.update', $cartItem->id) }}" method="post">
                                     @csrf
                                     @method('PATCH')
                                     <input type="submit" value="Save to Cart" class="cart_item_options">
@@ -52,7 +52,7 @@
 
                         </div>
                         <div class="col-1">
-                            @include('layouts._cartItemPrice')
+                            @include('partials._cartItemPrice')
                         </div>
                         
                     </div>
@@ -67,11 +67,11 @@
 
         <div class="mb-5 mt-5 d-flex justify-content-between">
             <div class="ta-buttons">
-                <a href="/shop" class="button button-black">Continue Shoping</a>
+                <a href="{{ route('shop.index') }}" class="button button-black">Continue Shoping</a>
             </div>
 
             <div class="ta-buttons">
-                <a href="/cart" class="button button-black">Shopping Cart</a>
+                <a href="{{ route('cart.index') }}" class="button button-black">Shopping Cart</a>
             </div>
 
         </div>

@@ -18,7 +18,7 @@
     </div>
 </div>
 
-@include('partial._addCategoryForm')
+@include('admin.category._addCategoryForm')
 
 
 @endsection
