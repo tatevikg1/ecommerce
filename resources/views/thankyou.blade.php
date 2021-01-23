@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'E-Commerce')
 @section('content')
 
 @if(session()->has('success_message'))

@@ -59,7 +59,7 @@
     }
     td, th { 
         padding: 6px; 
-        border: 1px solid #ccc; 
+        border: 1px solid #aaa; 
         text-align: right; 
     }
 }
@@ -106,9 +106,7 @@ only screen and (max-width: 760px),
         white-space: nowrap;
     }
     
-    /*
-    Label the data
-    */
+    /*  Label the data*/
     .table-categories td:nth-of-type(1):before { content: "Name "; text-align: left; font-weight: bold; }
     .table-categories td:nth-of-type(2):before { content: "Created at"; text-align: left; font-weight: bold; }
     .table-categories td:nth-of-type(3):before { content: "Action"; text-align: left; font-weight: bold; }

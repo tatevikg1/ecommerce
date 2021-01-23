@@ -44,4 +44,25 @@ class ProductController extends Controller
 
         return redirect()->route('admin.product.index')->with('success_message', 'Product has been removed!');
     }
+
+    // public function update(Product $product, CreateProductRequest $request)
+    // {
+    //     if ($request('image')) {
+    //         $imagePath = request('image')->store('profile', 'public');
+
+    //         $image = Image::make(public_path("storage/{$imagePath}"))->fit(1000, 1000);
+    //         $image->save();
+
+    //         $imageArray = ['image' => $imagePath];
+    //     }
+
+    //     auth()->user()->profile->update(array_merge(
+    //         $request,
+    //         $imageArray ?? []
+    //     ));
+    //     session()->flash('success_message', 'Product information was updated.');
+
+    //     return $product;
+    // }
+
 }

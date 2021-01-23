@@ -80,3 +80,27 @@
 }
 
 
+.admin-menu-container{
+
+    border-left: 1px solid #485160;
+    border-right: 1px solid #485160;
+    height: 500px;
+
+    h4:hover{
+        text-decoration: none;
+        background-color: #485160;
+        border-radius: 5px;
+        color:white;
+    }
+
+    .admin-menu-item{
+        background-color: #e2e2e2;
+        padding: 50px;
+        color:black;
+        border-radius: 5px;
+        width:200px;
+    }
+
+}
+
+

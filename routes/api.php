@@ -18,11 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// Route::get('api/categories', function(){
-//     $categories = Categories::all()->name();
-//     return $categories;
-// })->name('api/categories');
-
-
-// Route::post   ('/update_quantity/{cartItemId}/{number}', 'VueController@updateQuantity');
-// Route::post   ('/cart-items-quantity', 'VueController@getCartItemsQuantity');
+// returns all categories
+Route::post ('/admin/get-categories', function(){return App\Category::getCategories();});
+// returns all products
+Route::post ('/admin/get-products', function(){ return App\Product::all();});

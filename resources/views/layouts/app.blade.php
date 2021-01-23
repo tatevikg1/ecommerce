@@ -7,8 +7,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'News') }}</title>
-
+    <!-- <title>{{ config('app.name', 'News') }}</title> -->
+    <title>@yield('title')</title>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
@@ -17,9 +17,6 @@
         <script src="https://js.stripe.com/v3/"></script>
         <script src="{{ asset('js/stripe.js') }}" defer></script>
     @endif
-    <!-- @if(Route::currentRouteName() == 'admin.product.index' || Route::currentRouteName() =='admin.product.store')
-        <script src="{{ asset('js/product.js') }}" defer></script>
-    @endif -->
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -44,7 +41,11 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                    @if (auth()->check())
+                        @if (auth()->user()->id == 1)
+                            <a class="navbar-brand app-name" href="/admin">Administration</a> 
+                        @endif
+                    @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -57,11 +58,11 @@
                                 <a class="btn white-text-btn ml-3" href="/">ABOUT</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link"  style="color:white" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link"  style="color:white" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
@@ -76,7 +77,7 @@
                                 <Cart url="{{ route('cart.index') }}" cart-items-quantity=0></Cart>
                             </li>
                             <li class="nav-item dropdown ml-5">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" style="color:white" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
