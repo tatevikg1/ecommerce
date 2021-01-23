@@ -3,7 +3,7 @@
     <div class="modal-content-product">
         <div class="closeAddProduct">+</div>
 
-        <form  enctype="multipart/form-data" method="POST" id="addProductForm">
+        <form  enctype="multipart/form-data" method="POST" id="addProductForm" action="{{ route('admin.product.store') }}">
             @csrf
 
             <div class="d-flex justify-content-between">
@@ -40,8 +40,8 @@
                 </select> 
             </div>
 
-            <div  class="button button-black d-inline-flex p-2" id="storeProduct">Add product</div>
-
+            <!-- <div  class="button button-black d-inline-flex p-2" id="storeProduct">Add product</div> -->
+            <input type="submit" value="Add product">
         </form>
     </div>
 <div>

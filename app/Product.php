@@ -19,5 +19,17 @@ class Product extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function photos()
+    {
+        return $this->hasMany(Photo::class);
+    }
+
+    public function productImage()
+    {
+        $imagePath = ($this->image) ? $this->image : 'uploads/no-image-available.png';
+
+        return '/storage/' . $imagePath;
+    }
     
 }

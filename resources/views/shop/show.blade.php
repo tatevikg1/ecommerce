@@ -8,7 +8,7 @@
             <div class="col-12 d-flex">
 
                 <div class="col-6">
-                    <img src="{{ asset('storage/img/'.$product->image )}}" 
+                    <img src="{{ $product->productImage() }}" 
                         alt="product image" width="70%" 
                         class="p-3 img-thumbnail product-img">
                 </div>

@@ -6,6 +6,7 @@ use App\Category;
 use App\Product;
 use App\Http\Requests\CreateProductRequest;
 use App\Http\Controllers\Controller;
+use Intervention\Image\Facades\Image;
 
 
 class ProductController extends Controller
@@ -23,9 +24,15 @@ class ProductController extends Controller
 
     public function store(CreateProductRequest $request)
     {
+
         $request->validated();
+
         $slug = str_replace(' ', '-', strtolower($request['name']));
-        
+
+        $imagePath = request('image')->store('uploads', 'public');
+        $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
+        $image->save();
+
         Product::create([
             'name' => $request['name'],
             'slug' => $slug,
@@ -33,9 +40,9 @@ class ProductController extends Controller
             'detales' => $request['detales'],
             'description' => $request['description'],
             'category_id' => $request['category'],
-            'image' => $request['image']
+            'image' => $imagePath,
         ]);
-
+        return redirect()->back();
     }
 
     public function destroy(Product $product)

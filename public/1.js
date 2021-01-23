@@ -151,7 +151,7 @@ var render = function() {
       _c("td", [_vm._v(_vm._s(_vm.product.description))]),
       _vm._v(" "),
       _vm.product.image
-        ? _c("td", [_vm._v(_vm._s(_vm.product.image.slice(0, 5)) + "...")])
+        ? _c("td", [_vm._v("...")])
         : _c("td", [_vm._v(" No image ")]),
       _vm._v(" "),
       _c("td", [_vm._v(_vm._s(_vm.product.discount) + "%")]),
@@ -285,7 +285,7 @@ __webpack_require__.r(__webpack_exports__);
 /*!****************************************************************************!*\
   !*** ./resources/js/components/Product.vue?vue&type=template&id=7e94e6d4& ***!
   \****************************************************************************/
-/*! no static exports found */
+/*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

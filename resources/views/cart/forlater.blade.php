@@ -22,7 +22,7 @@
                     <div class="d-flex col-12" style="padding-left:0;">
                         <div class="col-3" style="left:0">
                             <a href="{{ route('shop.show', $cartItem->product->slug ) }}">
-                                <img src="{{ asset('storage/img/'.$cartItem->product->image )}}" alt="product image" width='50%' style="min-width:80px">
+                                <img src="{{ $cartItem->product->productImage() }}" alt="product image" width='50%' style="min-width:80px">
                             </a>
                         </div>
                         <div class="col-3">

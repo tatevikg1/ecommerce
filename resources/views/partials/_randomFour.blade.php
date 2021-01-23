@@ -7,7 +7,7 @@
     @foreach ($randomFour as $product)
         <div class="product m-3">
             <a href="/shop/{{$product->slug}}">
-                <img src="{{ asset('storage/img/'.$product->image )}}" 
+                <img src="{{ $product->productImage() }}" 
                 width="130px" 
                 alt="product"
                 class="img-thumbnail product-img">

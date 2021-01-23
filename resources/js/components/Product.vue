@@ -4,7 +4,7 @@
         <td >${{ product.price }}</td>
         <td >{{ product.detales }}</td>
         <td >{{ product.description }}</td>
-        <td v-if="product.image">{{ product.image.slice(0, 5)  }}...</td>
+        <td v-if="product.image">...</td>
         <td v-else> No image </td>
         <td >{{ product.discount }}%</td>
         <td >{{ product.created_at.slice(0, 10)  }}</td>

@@ -15,7 +15,6 @@ class User extends Authenticatable
     use Notifiable;
     use Billable;
 
-
     protected $fillable = [
         'name', 'email', 'password',
     ];
@@ -29,6 +28,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // creates a cart for registered user
+    protected static function boot()
+    {
+        parent::boot();
+    
+        static::created(function ($user) {
+            $user->cart()->create([
+                'user_id' => $user->id,
+            ]);
+        });
+    }
 
     public function cart()
     {

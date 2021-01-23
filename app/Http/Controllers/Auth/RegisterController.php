@@ -43,10 +43,6 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
-        Cart::create([
-            'user_id' => $user->id,
-        ]);
-
         return $user;
     }
 }

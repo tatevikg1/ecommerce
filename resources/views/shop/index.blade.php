@@ -32,14 +32,13 @@
 
                         @forelse ($products as $product)
                             <div class="product m-3">
-                                <a href="/shop/{{$product->slug}}">
-                                    <img src="{{ asset('storage/img/'.$product->image )}}" 
+                                <a href="{{ route('shop.show', $product->slug) }}">
+                                    <img src="{{ $product->productImage() }}" 
                                         width="130px" alt="product"
                                         class=" product-img img-thumbnail">
-                                </a>
-                                <a href="/shop/{{$product->slug}}">
                                     <div class="product-name">{{ $product->name }}</div>
                                 </a>
+
                                 <div class="product-price">
                                     @include('partials._price')
                                 </div>

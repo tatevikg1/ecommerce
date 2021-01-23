@@ -50944,46 +50944,46 @@ if (window.location.pathname == '/admin/product') {
   document.querySelector('.closeAddProduct').addEventListener('click', function () {
     document.querySelector('.bg-modal-product').style.display = 'none';
     app.$refs.products.getProducts();
-  });
-  document.querySelector('#storeProduct').addEventListener('click', function () {
-    var spans = document.getElementsByClassName('error_messages');
-
-    for (var i = 0; i < spans.length; i++) {
-      spans[i].innerHTML = '';
-    }
-
-    var url = '/admin/product';
-    var formData = $(addProductForm).serializeArray(); // var request = new XMLHttpRequest();
-    // request.open("POST", url);
-    // request.send(new FormData(addProductForm));
-
-    $.post(url, formData).done(function (data) {
-      document.querySelector('#name').value = '';
-      document.querySelector('#detales').value = '';
-      document.querySelector('#price').value = '';
-      document.querySelector('#image').value = '';
-      document.querySelector('#description').value = '';
-      document.querySelector('#category').value = '';
-    }).fail(function (response) {
-      $.each(response.responseJSON.errors, function (field_name, error) {
-        $(document).find('[name=' + field_name + ']').after('<span class="error_messages" style="color:red">' + error + '</span>');
-      });
-    }); // request.onload = function(response){
-    //     if (request.status != 200) { 
-    //         $.each(response.responseJSON.errors, function(field_name, error){
-    //                     $(document).find('[name='+field_name+']').after('<span class="error_messages" style="color:red">' +error+ '</span>')
-    //                 })
-    //     } else { 
-    //         document.querySelector('#name').value = '';
-    //         document.querySelector('#detales').value = '';
-    //         document.querySelector('#price').value = '';
-    //         document.querySelector('#image').value = '';
-    //         document.querySelector('#description').value = '';
-    //         document.querySelector('#category').value = '';  
-    //     }
-    // };
-    // request.send(new FormData(addProductForm));
-  });
+  }); // document.querySelector('#storeProduct').addEventListener('click', function(){
+  //     var spans = document.getElementsByClassName('error_messages');
+  //     for(var i = 0; i < spans.length; i++)
+  //     {
+  //         spans[i].innerHTML = '';
+  //     }
+  //     var url = '/admin/product';
+  //     var formData = $(addProductForm).serializeArray();
+  //     // var request = new XMLHttpRequest();
+  //     // request.open("POST", url);
+  //     // request.send(new FormData(addProductForm));
+  //     $.post(url, formData).done(function (data) {
+  //         document.querySelector('#name').value = '';
+  //         document.querySelector('#detales').value = '';
+  //         document.querySelector('#price').value = '';
+  //         document.querySelector('#image').value = '';
+  //         document.querySelector('#description').value = '';
+  //         document.querySelector('#category').value = '';               
+  //     })
+  //     .fail(function(response){
+  //         $.each(response.responseJSON.errors, function(field_name, error){
+  //             $(document).find('[name='+field_name+']').after('<span class="error_messages" style="color:red">' +error+ '</span>')
+  //         })
+  //     });
+  //     // request.onload = function(response){
+  //     //     if (request.status != 200) { 
+  //     //         $.each(response.responseJSON.errors, function(field_name, error){
+  //     //                     $(document).find('[name='+field_name+']').after('<span class="error_messages" style="color:red">' +error+ '</span>')
+  //     //                 })
+  //     //     } else { 
+  //     //         document.querySelector('#name').value = '';
+  //     //         document.querySelector('#detales').value = '';
+  //     //         document.querySelector('#price').value = '';
+  //     //         document.querySelector('#image').value = '';
+  //     //         document.querySelector('#description').value = '';
+  //     //         document.querySelector('#category').value = '';  
+  //     //     }
+  //     // };
+  //     // request.send(new FormData(addProductForm));
+  // });
 }
 
 /***/ }),

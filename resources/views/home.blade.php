@@ -42,7 +42,7 @@
                             <div class="product">
                                 <a href="{{ route('shop.show', $product->slug) }}">
                                     <div >
-                                        <img src="{{ asset('storage/img/'.$product->image )}}" 
+                                        <img src="{{ $product->productImage() }}" 
                                             width="130px" alt="product" 
                                             class="product-img img-thumbnail">
                                     </div>
@@ -59,7 +59,7 @@
                     </div>
 
                     <div class="text-center button-container">
-                        <a href="/shop" class="button button-black">View more products</a>
+                        <a href="{{ route('shop.index') }}" class="button button-black">View more products</a>
                     </div>
 
                 </div>
