@@ -5,7 +5,7 @@
                 <tr>
                     <th>Category</th>
                     <th>Created at</th>
-                    <th colspan="2">Action</th>
+                    <th class="action">Action</th>
                 </tr>
             </thead>
             
@@ -60,7 +60,10 @@
     td, th { 
         padding: 6px; 
         border: 1px solid #aaa; 
-        text-align: right; 
+        text-align: left; 
+    }
+    .action{
+        width: 100px;
     }
 }
 
@@ -74,7 +77,7 @@ only screen and (max-width: 760px),
     }
 
     body, tr{
-        text-align: right;
+        text-align: left;
     }
     
     /* Hide table headers (but not display: none;, for accessibility) */
@@ -112,5 +115,9 @@ only screen and (max-width: 760px),
     .table-categories td:nth-of-type(3):before { content: "Action"; text-align: left; font-weight: bold; }
     .table-categories td:nth-of-type(4):before { content: "";  }
 
+    .table-categories td:nth-of-type(1) { text-align: right; }
+    .table-categories td:nth-of-type(2) { text-align: right; }
+    .table-categories td:nth-of-type(3) { text-align: right; }
+    .table-categories td:nth-of-type(4) { text-align: right; }
 }
 </style>

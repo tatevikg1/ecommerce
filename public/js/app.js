@@ -2102,7 +2102,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   components: {
     Category: function Category() {
-      return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./Category.vue */ "./resources/js/components/Category.vue"));
+      return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./Category.vue */ "./resources/js/components/Category.vue"));
     }
   }
 });
@@ -2168,7 +2168,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   components: {
     SingleImage: function SingleImage() {
-      return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./SingleImage.vue */ "./resources/js/components/SingleImage.vue"));
+      return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./SingleImage.vue */ "./resources/js/components/SingleImage.vue"));
     }
   }
 });
@@ -2184,7 +2184,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
 //
 //
 //
@@ -2227,7 +2226,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   components: {
     Product: function Product() {
-      return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./Product.vue */ "./resources/js/components/Product.vue"));
+      return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./Product.vue */ "./resources/js/components/Product.vue"));
     }
   }
 });
@@ -2323,7 +2322,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   components: {
     SingleImage: function SingleImage() {
-      return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./SingleImage.vue */ "./resources/js/components/SingleImage.vue"));
+      return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./SingleImage.vue */ "./resources/js/components/SingleImage.vue"));
     }
   }
 });
@@ -6762,7 +6761,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".table-categories {\n  /* Zebra striping */\n}\n.table-categories table {\n  width: 100%;\n}\n.table-categories tr:nth-of-type(odd) {\n  background: #eee;\n}\n.table-categories th {\n  background: #485160;\n  color: white;\n  font-weight: bold;\n}\n.table-categories td, .table-categories th {\n  padding: 6px;\n  border: 1px solid #aaa;\n  text-align: right;\n}\n@media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {\n  /* Force table to not be like tables anymore */\ntable, thead, tbody, th, td, tr {\n    display: block;\n}\nbody, tr {\n    text-align: right;\n}\n\n  /* Hide table headers (but not display: none;, for accessibility) */\nthead tr {\n    position: absolute;\n    top: -9999px;\n    left: -9999px;\n}\ntr {\n    border: 1px solid #ccc;\n}\ntd {\n    /* Behave  like a \"row\" */\n    border: none;\n    border-bottom: 1px solid #eee;\n    position: relative;\n    padding-left: 50%;\n    vertical-align: middle;\n}\n.table-categories td:before {\n    /* Now like a table header */\n    position: absolute;\n    /* Top/left values mimic padding */\n    top: 6px;\n    left: 6px;\n    width: 45%;\n    padding-right: 10px;\n    white-space: nowrap;\n}\n\n  /*  Label the data*/\n.table-categories td:nth-of-type(1):before {\n    content: \"Name \";\n    text-align: left;\n    font-weight: bold;\n}\n.table-categories td:nth-of-type(2):before {\n    content: \"Created at\";\n    text-align: left;\n    font-weight: bold;\n}\n.table-categories td:nth-of-type(3):before {\n    content: \"Action\";\n    text-align: left;\n    font-weight: bold;\n}\n.table-categories td:nth-of-type(4):before {\n    content: \"\";\n}\n}", ""]);
+exports.push([module.i, ".table-categories {\n  /* Zebra striping */\n}\n.table-categories table {\n  width: 100%;\n}\n.table-categories tr:nth-of-type(odd) {\n  background: #eee;\n}\n.table-categories th {\n  background: #485160;\n  color: white;\n  font-weight: bold;\n}\n.table-categories td, .table-categories th {\n  padding: 6px;\n  border: 1px solid #aaa;\n  text-align: left;\n}\n.table-categories .action {\n  width: 100px;\n}\n@media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {\n  /* Force table to not be like tables anymore */\ntable, thead, tbody, th, td, tr {\n    display: block;\n}\nbody, tr {\n    text-align: left;\n}\n\n  /* Hide table headers (but not display: none;, for accessibility) */\nthead tr {\n    position: absolute;\n    top: -9999px;\n    left: -9999px;\n}\ntr {\n    border: 1px solid #ccc;\n}\ntd {\n    /* Behave  like a \"row\" */\n    border: none;\n    border-bottom: 1px solid #eee;\n    position: relative;\n    padding-left: 50%;\n    vertical-align: middle;\n}\n.table-categories td:before {\n    /* Now like a table header */\n    position: absolute;\n    /* Top/left values mimic padding */\n    top: 6px;\n    left: 6px;\n    width: 45%;\n    padding-right: 10px;\n    white-space: nowrap;\n}\n\n  /*  Label the data*/\n.table-categories td:nth-of-type(1):before {\n    content: \"Name \";\n    text-align: left;\n    font-weight: bold;\n}\n.table-categories td:nth-of-type(2):before {\n    content: \"Created at\";\n    text-align: left;\n    font-weight: bold;\n}\n.table-categories td:nth-of-type(3):before {\n    content: \"Action\";\n    text-align: left;\n    font-weight: bold;\n}\n.table-categories td:nth-of-type(4):before {\n    content: \"\";\n}\n.table-categories td:nth-of-type(1) {\n    text-align: right;\n}\n.table-categories td:nth-of-type(2) {\n    text-align: right;\n}\n.table-categories td:nth-of-type(3) {\n    text-align: right;\n}\n.table-categories td:nth-of-type(4) {\n    text-align: right;\n}\n}", ""]);
 
 // exports
 
@@ -6800,7 +6799,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".table-products {\n  /* Zebra striping */\n}\n.table-products table {\n  width: 100%;\n  /* border-collapse: collapse;  */\n  /* color:black; */\n}\n.table-products .table-products tr:nth-of-type(odd) {\n  background: #eee;\n}\n.table-products th {\n  background: #485160;\n  color: white;\n  font-weight: bold;\n}\n.table-products td, .table-products th {\n  padding: 5px;\n  border: 1px solid #aaa;\n  text-align: right;\n}\n@media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {\n  /* Force table to not be like tables anymore */\ntable, thead, tbody, th, td, tr {\n    display: block;\n}\ntbody, tr {\n    text-align: right;\n}\n\n  /* Hide table headers (but not display: none;, for accessibility) */\nthead tr {\n    position: absolute;\n    top: -9999px;\n    left: -9999px;\n}\ntr {\n    border: 1px solid #ccc;\n}\ntd {\n    /* Behave  like a \"row\" */\n    border: none;\n    border-bottom: 1px solid #eee;\n    position: relative;\n    padding-left: 50%;\n    vertical-align: middle;\n}\n.table-products td:before {\n    /* Now like a table header */\n    position: absolute;\n    /* Top/left values mimic padding */\n    top: 6px;\n    left: 6px;\n    width: 45%;\n    padding-right: 10px;\n    white-space: nowrap;\n}\n\n  /*  Label the data  */\n.table-products td:nth-of-type(1):before {\n    content: \"Name \";\n    text-align: left;\n    font-weight: bold;\n}\n.table-products td:nth-of-type(2):before {\n    content: \"Price\";\n    text-align: left;\n    font-weight: bold;\n}\n.table-products td:nth-of-type(3):before {\n    content: \"Detales\";\n    text-align: left;\n    font-weight: bold;\n}\n.table-products td:nth-of-type(4):before {\n    content: \"\";\n}\n.table-products td:nth-of-type(5):before {\n    content: \"Image\";\n    text-align: left;\n    font-weight: bold;\n}\n.table-products td:nth-of-type(6):before {\n    content: \"Discount\";\n    text-align: left;\n    font-weight: bold;\n}\n.table-products td:nth-of-type(7):before {\n    content: \"Created at\";\n    text-align: left;\n    font-weight: bold;\n}\n.table-products td:nth-of-type(8):before {\n    content: \"Action\";\n    text-align: left;\n    font-weight: bold;\n}\n}", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\n.table-products {\n  /* Zebra striping */\n}\n.table-products table {\n  width: 100%;\n  /* border-collapse: collapse;  */\n  /* color:black; */\n}\n.table-products .table-products tr:nth-of-type(odd) {\n  background: #eee;\n}\n.table-products th {\n  background: #485160;\n  color: white;\n  font-weight: bold;\n}\n.table-products td, .table-products th {\n  padding: 5px;\n  border: 1px solid #aaa;\n  text-align: left;\n}\n@media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {\n  /* Force table to not be like tables anymore */\ntable, thead, tbody, th, td, tr {\n    display: block;\n}\n\n  /* Hide table headers (but not display: none;, for accessibility) */\nthead tr {\n    position: absolute;\n    top: -9999px;\n    left: -9999px;\n}\ntr {\n    border: 1px solid #ccc;\n}\ntd {\n    /* Behave  like a \"row\" */\n    border: none;\n    border-bottom: 1px solid #eee;\n    position: relative;\n    padding-left: 50%;\n    vertical-align: middle;\n}\n.table-products td:before {\n    /* Now like a table header */\n    position: absolute;\n    /* Top/left values mimic padding */\n    top: 6px;\n    left: 6px;\n    width: 45%;\n    padding-right: 10px;\n    white-space: nowrap;\n}\n\n  /*  Label the data  */\n.table-products td:nth-of-type(1):before {\n    content: \"Name \";\n    text-align: left;\n    font-weight: bold;\n}\n.table-products td:nth-of-type(2):before {\n    content: \"Price\";\n    text-align: left;\n    font-weight: bold;\n}\n.table-products td:nth-of-type(3):before {\n    content: \"Detales\";\n    text-align: left;\n    font-weight: bold;\n}\n.table-products td:nth-of-type(4):before {\n    content: \"\";\n}\n.table-products td:nth-of-type(5):before {\n    content: \"Discount\";\n    text-align: left;\n    font-weight: bold;\n}\n.table-products td:nth-of-type(6):before {\n    content: \"Created at\";\n    text-align: left;\n    font-weight: bold;\n}\n.table-products td:nth-of-type(7):before {\n    content: \"\\2024\\2024\\2024\\2024\\2024\";\n    text-align: left;\n    font-weight: bold;\n}\n.table-products td:nth-of-type(8):before {\n    content: \"\\2024\\2024\\2024\\2024\\2024\";\n    text-align: left;\n    font-weight: bold;\n}\n.table-products td:nth-of-type(1) {\n    text-align: right;\n}\n.table-products td:nth-of-type(2) {\n    text-align: right;\n}\n.table-products td:nth-of-type(3) {\n    text-align: right;\n}\n.table-products td:nth-of-type(4) {\n    text-align: right;\n}\n.table-products td:nth-of-type(5) {\n    text-align: right;\n}\n.table-products td:nth-of-type(6) {\n    text-align: right;\n}\n.table-products td:nth-of-type(7) {\n    text-align: right;\n}\n.table-products td:nth-of-type(8) {\n    text-align: right;\n}\n}", ""]);
 
 // exports
 
@@ -38818,7 +38817,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Created at")]),
         _vm._v(" "),
-        _c("th", { attrs: { colspan: "2" } }, [_vm._v("Action")])
+        _c("th", { staticClass: "action" }, [_vm._v("Action")])
       ])
     ])
   }
@@ -38919,13 +38918,15 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Description")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Image")]),
-        _vm._v(" "),
         _c("th", [_vm._v("Discount")]),
         _vm._v(" "),
         _c("th", [_vm._v("Created at")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Action")])
+        _c(
+          "th",
+          { staticStyle: { "text-align": "center" }, attrs: { colspan: "2" } },
+          [_vm._v("Action")]
+        )
       ])
     ])
   }

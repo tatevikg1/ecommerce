@@ -8,7 +8,7 @@
                 <input type="hidden" name="category" :value="category.id">
 
                 <button @click="deleteCategory(category.id)"
-                        class="button button-black">Delete
+                        class="btn btn-secondary">Delete
                 </button>
             </form>
         </td> 
@@ -48,13 +48,8 @@
 
 <style>
 .table-categories td {
-    text-align: right; 
+    text-align: left; 
     vertical-align: middle;
-}
-.table-categories  .button{
-    padding:5px;
-    padding-left: 10px;
-    padding-right: 10px;
 }
 
 </style>

@@ -7,10 +7,9 @@
                     <th>Price</th>
                     <th>Detales</th>
                     <th>Description</th>
-                    <th>Image</th>
                     <th>Discount</th>
                     <th>Created at</th>
-                    <th >Action</th>
+                    <th colspan="2" style="text-align:center">Action</th>
                 </tr>
             </thead>
             
@@ -67,7 +66,7 @@
     td, th { 
         padding: 5px; 
         border: 1px solid #aaa; 
-        text-align: right; 
+        text-align: left; 
     }
 }
 @media 
@@ -79,9 +78,9 @@ only screen and (max-width: 760px),
         display: block; 
     }
 
-    tbody, tr{
-        text-align: right;
-    }
+    // tbody, tr{
+    //     text-align: right;
+    // }
     
     /* Hide table headers (but not display: none;, for accessibility) */
     thead tr { 
@@ -113,13 +112,23 @@ only screen and (max-width: 760px),
     }
     
     /*  Label the data  */
-    .table-products td:nth-of-type(1):before { content: "Name "; text-align: left; font-weight: bold; }
+    .table-products td:nth-of-type(1):before { content: "Name "; text-align: left; font-weight: bold; }  
     .table-products td:nth-of-type(2):before { content: "Price"; text-align: left; font-weight: bold; }
     .table-products td:nth-of-type(3):before { content: "Detales"; text-align: left; font-weight: bold; }
     .table-products td:nth-of-type(4):before { content: "";  }
-    .table-products td:nth-of-type(5):before { content: "Image"; text-align: left; font-weight: bold; }
-    .table-products td:nth-of-type(6):before { content: "Discount"; text-align: left; font-weight: bold; }
-    .table-products td:nth-of-type(7):before { content: "Created at"; text-align: left; font-weight: bold; }
-    .table-products td:nth-of-type(8):before { content: "Action"; text-align: left; font-weight: bold; }
+    .table-products td:nth-of-type(5):before { content: "Discount"; text-align: left; font-weight: bold; }
+    .table-products td:nth-of-type(6):before { content: "Created at"; text-align: left; font-weight: bold; }
+    .table-products td:nth-of-type(7):before { content: "․․․․․"; text-align: left; font-weight: bold; }
+    .table-products td:nth-of-type(8):before { content: "․․․․․"; text-align: left; font-weight: bold; }
+
+    .table-products td:nth-of-type(1) {text-align: right;}
+    .table-products td:nth-of-type(2) {text-align: right;}
+    .table-products td:nth-of-type(3) {text-align: right;}
+    .table-products td:nth-of-type(4) {text-align: right;}
+    .table-products td:nth-of-type(5) {text-align: right;}
+    .table-products td:nth-of-type(6) {text-align: right;}
+    .table-products td:nth-of-type(7) {text-align: right;}
+    .table-products td:nth-of-type(8) {text-align: right;}
+
 }
 </style>
