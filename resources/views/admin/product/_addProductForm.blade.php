@@ -33,7 +33,7 @@
            
             <div class="form-group">
                 <label class="my-1 mr-2" for="category">Select category</label>
-                <select id="category" name="category" class="form-control  @error('category') is-invalid @enderror">
+                <select id="category" name="category_id" class="form-control  @error('category') is-invalid @enderror">
                     @foreach($categories  as $category)
                         <option value="{{ $category->id }}">{{ $category->name }}</option>
                     @endforeach

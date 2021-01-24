@@ -32,7 +32,7 @@
 
         methods:{
             getCategories: function(){
-                axios.post('/admin/get-categories')
+                axios.post('/api/admin/get-categories')
                 .then((response) => {
                     this.categories = response.data;
                 })

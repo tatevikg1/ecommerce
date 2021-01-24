@@ -33,6 +33,8 @@
             </div>
         </div>
 
+        <display-images product="{{ $product->id }}"></display-images>
+
         <div class="pt-5">
             @include('partials._randomFour')
         </div>

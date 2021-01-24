@@ -7,7 +7,8 @@ use App\Product;
 use App\Http\Requests\CreateProductRequest;
 use App\Http\Controllers\Controller;
 use Intervention\Image\Facades\Image;
-
+use App\Photo;
+use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
@@ -39,7 +40,7 @@ class ProductController extends Controller
             'price' => $request['price'],
             'detales' => $request['detales'],
             'description' => $request['description'],
-            'category_id' => $request['category'],
+            'category_id' => $request['category_id'],
             'image' => $imagePath,
         ]);
         return redirect()->back();
@@ -52,24 +53,43 @@ class ProductController extends Controller
         return redirect()->route('admin.product.index')->with('success_message', 'Product has been removed!');
     }
 
-    // public function update(Product $product, CreateProductRequest $request)
-    // {
-    //     if ($request('image')) {
-    //         $imagePath = request('image')->store('profile', 'public');
+    public function edit(Product $product)
+    {
+        $photos = Photo::where('product_id', $product->id)->get();
+        $categories = Category::all();
+        return view('admin.product.edit', compact('product', 'photos', 'categories'));
+    }
 
-    //         $image = Image::make(public_path("storage/{$imagePath}"))->fit(1000, 1000);
-    //         $image->save();
+    public function update(Request $request, Product $product)
+    {
+        $request->validate([
+            // to chack if it is unique compared to all products except updating product
+            'name' => 'unique:products,name,' . $product->id,
+            'price' => 'required',
+            'detales' => 'required',
+            'description' => 'required',
+            'category_id' => 'required',
+        ]);
+        // if the new price is less than it was before, set discont to that procent, else set it to 0
+        $discount = ($product->price > $request->price) ?  (($product->price - $request->price)/ $product->price) : 0;
 
-    //         $imageArray = ['image' => $imagePath];
-    //     }
+        try {
+            $request->product->update([
+                'name' => $request['name'],
+                'price' => $request['price'],
+                'detales' => $request['detales'],
+                'description' => $request['description'],
+                'category_id' => $request['category_id'],
+                'discount' => $discount,
+            ]);
+        } catch (\Throwable $th) {
+            session()->flash('success_message', 'Something went wrong.');
+            return redirect()->route('admin.product.index');
+        }
 
-    //     auth()->user()->profile->update(array_merge(
-    //         $request,
-    //         $imageArray ?? []
-    //     ));
-    //     session()->flash('success_message', 'Product information was updated.');
-
-    //     return $product;
-    // }
+        session()->flash('success_message', 'Product information was updated.');
+        
+        return redirect()->route('admin.product.index');
+    }
 
 }

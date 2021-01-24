@@ -46,16 +46,17 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-      visible: true
+      visible: true,
+      url: "/admin/product/".concat(this.product.id, "/edit")
     };
   },
   methods: {
-    deleteProduct: function deleteProduct(id) {
+    deleteProduct: function deleteProduct(id, event) {
       event.preventDefault();
       this.visible = false;
-      axios["delete"]("/admin/product/".concat(id)).then(function (response) {
+      axios["delete"]("/admin/product/".concat(id)).then(function () {
         console.log('Product was deleted.');
-      })["catch"](function (error) {
+      })["catch"](function () {
         console.log('Delete request is made twice. Dont pay attention ;)');
       });
     }
@@ -187,25 +188,21 @@ var render = function() {
         _vm._v(" "),
         _c("p"),
         _vm._v(" "),
-        _vm._m(0)
+        _c("p", { staticStyle: { margin: "4px" } }, [
+          _c(
+            "a",
+            {
+              staticClass: "button button-black mt-5",
+              attrs: { href: _vm.url }
+            },
+            [_vm._v("Edit")]
+          )
+        ])
       ])
     ]
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", { staticStyle: { margin: "4px" } }, [
-      _c(
-        "a",
-        { staticClass: "button button-black mt-5", attrs: { href: "" } },
-        [_vm._v("Edit")]
-      )
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

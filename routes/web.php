@@ -35,6 +35,7 @@ Route::prefix('admin')->group(function () {
     Route::get      ('/product',              'Admin\ProductController@index')  ->name('admin.product.index');
     Route::post     ('/product',              'Admin\ProductController@store')  ->name('admin.product.store');
     Route::delete   ('/product/{product}',    'Admin\ProductController@destroy')->name('admin.product.destroy');
+    Route::get      ('/product/{product}/edit', 'Admin\ProductController@edit') ->name('admin.product.edit');
     Route::patch    ('/product/{product}',    'Admin\ProductController@update') ->name('admin.product.update');
 });
 

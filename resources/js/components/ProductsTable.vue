@@ -37,7 +37,7 @@
 
         methods:{
             getProducts: function(){
-                axios.post('/admin/get-products')
+                axios.post('/api/admin/get-products')
                 .then((response) => {
                     this.products = response.data;
                 })

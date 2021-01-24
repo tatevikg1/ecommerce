@@ -20,7 +20,7 @@
                 </form>
             </p>
             <p style="margin:4px">
-                <a href="" class="button button-black mt-5">Edit</a>
+                <a :href="url" class="button button-black mt-5">Edit</a>
             </p>
         </td> 
     </tr>
@@ -38,18 +38,19 @@
             return {
                 csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
                 visible: true,
+                url: `/admin/product/${ this.product.id }/edit`,
             }
         },
 
         methods:{
-            deleteProduct(id){
+            deleteProduct(id, event){
                 event.preventDefault();
                 this.visible = false;
                 axios.delete(`/admin/product/${id}`)
-                .then((response) => {
+                .then(() => {
                     console.log('Product was deleted.');
                 })
-                .catch(error => {
+                .catch(() => {
                     console.log('Delete request is made twice. Dont pay attention ;)');
                 });
             }

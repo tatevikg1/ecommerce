@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Category;
-use App\Http\Requests\CreateCategoryRequest;
 use App\Http\Controllers\Controller;
 
 
@@ -19,13 +17,13 @@ class AdminController extends Controller
         return view('admin.index');
     }
 
-    public function store(CreateCategoryRequest $request)
-    {
+    // public function store(CreateCategoryRequest $request)
+    // {
        
-    }
+    // }
 
-    public function destroy(Category $category)
-    {
+    // public function destroy(Category $category)
+    // {
 
-    }
+    // }
 }

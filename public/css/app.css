@@ -11158,7 +11158,7 @@ li.active {
 .admin-menu-container {
   border-left: 1px solid #485160;
   border-right: 1px solid #485160;
-  height: 500px;
+  height: auto;
 }
 
 .admin-menu-container h4:hover {
