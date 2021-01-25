@@ -11024,7 +11024,7 @@ header .top-nav-right {
 
 .button {
   border: 1px solid #212121;
-  padding: 12px 40px;
+  padding: 8px 30px;
   text-decoration: none;
 }
 
@@ -11069,11 +11069,6 @@ header .top-nav-right {
 
 li.active {
   font-weight: bold;
-}
-
-.product-img {
-  border: 1px solid black;
-  min-width: 80px;
 }
 
 .originalPrice {

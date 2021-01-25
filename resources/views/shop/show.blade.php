@@ -7,10 +7,8 @@
 
             <div class="col-12 d-flex">
 
-                <div class="col-6">
-                    <img src="{{ $product->productImage() }}" 
-                        alt="product image" width="70%" 
-                        class="p-3 img-thumbnail product-img">
+                <div>
+                    <display-images productid="{{ $product->id }}" mainimage="{{ $product->image }}"></display-images>
                 </div>
 
                 <div class="col-6">
@@ -33,7 +31,7 @@
             </div>
         </div>
 
-        <display-images product="{{ $product->id }}"></display-images>
+        
 
         <div class="pt-5">
             @include('partials._randomFour')

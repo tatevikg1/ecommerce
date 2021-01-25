@@ -2076,9 +2076,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    product: {
+    productid: {
+      required: true
+    },
+    mainimage: {
       required: true
     }
   },
@@ -2087,28 +2091,20 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      images: Array
+      images: Array,
+      href: "/storage/".concat(this.mainimage)
     };
   },
   methods: {
     getPhotos: function getPhotos() {
       var _this = this;
 
-      axios.get("/api/admin/get-product-photos/".concat(this.product)).then(function (response) {
+      axios.get("/api/admin/get-product-photos/".concat(this.productid)).then(function (response) {
         _this.images = response.data;
       });
     },
-    onFileSelected: function onFileSelected(event) {
-      var _this2 = this;
-
-      var bodyFormData = new FormData();
-      bodyFormData.append('image', event.target.files[0]);
-      bodyFormData.append('product_id', document.querySelector('#product_id').value);
-      axios.post('/api/admin/phote/store', bodyFormData).then(function (response) {
-        _this2.getPhotos();
-
-        console.log(response);
-      });
+    setImageAsMain: function setImageAsMain(event) {
+      this.href = event.target.attributes.src.value;
     }
   }
 });
@@ -2190,7 +2186,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   components: {
     Category: function Category() {
-      return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./Category.vue */ "./resources/js/components/admin/Category.vue"));
+      return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./Category.vue */ "./resources/js/components/admin/Category.vue"));
     }
   }
 });
@@ -2248,7 +2244,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   components: {
     Product: function Product() {
-      return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./Product.vue */ "./resources/js/components/admin/Product.vue"));
+      return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./Product.vue */ "./resources/js/components/admin/Product.vue"));
     }
   }
 });
@@ -2316,7 +2312,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   components: {
     SingleImage: function SingleImage() {
-      return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./SingleImage.vue */ "./resources/js/components/admin/SingleImage.vue"));
+      return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./SingleImage.vue */ "./resources/js/components/admin/SingleImage.vue"));
     }
   }
 });
@@ -6755,7 +6751,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".image-display-block {\n  margin-top: 30px;\n}\n.image-display-block .image-display {\n  padding: 10px;\n  margin-right: 5px;\n  margin-bottom: 5px;\n  width: 120px;\n  height: 120px;\n  border: 1px solid black;\n  position: relative;\n  border-radius: 4px;\n}\n.image-display-block .img-display {\n  width: 100px;\n  height: 100px;\n}\n@media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {\n.image-display-block .image-display {\n    padding: 5px;\n    margin-right: 5px;\n    width: 80px;\n    height: 80px;\n    border: 1px solid black;\n    position: relative;\n    border-radius: 4px;\n}\n.image-display-block .image-display .img-display {\n    width: 70px;\n    height: 70px;\n}\n.product-img {\n    width: 150px;\n}\n}", ""]);
+exports.push([module.i, ".image-display-block {\n  margin-top: 30px;\n}\n.image-display-block .image-display {\n  padding: 10px;\n  margin-right: 5px;\n  margin-bottom: 5px;\n  width: 100px;\n  height: 100px;\n  border: 1px solid black;\n  position: relative;\n  border-radius: 4px;\n}\n.image-display-block .img-display {\n  width: 80px;\n  height: 80px;\n}\n.product-image {\n  border: 1px solid black;\n  min-width: 80px;\n  max-width: 400px;\n  border-radius: 5px;\n  padding: 10px;\n}\n@media only screen and (max-width: 700px), (min-device-width: 728px) and (max-device-width: 924px) {\n.image-display-block .image-display {\n    padding: 5px;\n    margin-right: 5px;\n    width: 80px;\n    height: 80px;\n    border: 1px solid black;\n    position: relative;\n    border-radius: 4px;\n}\n.image-display-block .image-display .img-display {\n    width: 70px;\n    height: 70px;\n}\n.product-image {\n    border: 1px solid black;\n    min-width: 80px;\n    max-width: 170px;\n    border-radius: 5px;\n    padding: 5px;\n}\n}", ""]);
 
 // exports
 
@@ -38780,22 +38776,28 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c(
-      "div",
-      { staticClass: "image-display-block" },
-      _vm._l(_vm.images, function(image) {
-        return _c("div", { key: image.id, staticClass: "d-inline-flex" }, [
-          _c("div", { staticClass: "image-display" }, [
+  return _c("div", { staticClass: "col-12" }, [
+    _c("img", {
+      staticClass: "product-image thumbnail-img",
+      attrs: { src: _vm.href, alt: "product image" }
+    }),
+    _vm._v(" "),
+    _c("div", { staticClass: "container" }, [
+      _c(
+        "div",
+        { staticClass: "image-display-block row" },
+        _vm._l(_vm.images, function(image) {
+          return _c("div", { key: image.id, staticClass: "image-display" }, [
             _c("img", {
               staticClass: "img-display",
-              attrs: { src: "/storage/" + image.image, alt: "image" }
+              attrs: { src: "/storage/" + image.image, alt: "image" },
+              on: { click: _vm.setImageAsMain }
             })
           ])
-        ])
-      }),
-      0
-    )
+        }),
+        0
+      )
+    ])
   ])
 }
 var staticRenderFns = []

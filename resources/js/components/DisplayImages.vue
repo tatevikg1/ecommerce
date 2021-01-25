@@ -1,9 +1,10 @@
 <template>
-    <div class="container">
-        <div  class="image-display-block">
-            <div class="d-inline-flex" v-for="image in images" :key="image.id">
-                <div class="image-display">
-                    <img :src=" `/storage/${image.image}`" alt="image" class="img-display">
+    <div class="col-12">
+        <img :src="href" alt="product image" class="product-image thumbnail-img">
+        <div class="container">
+            <div  class="image-display-block row">
+                <div class="image-display" v-for="image in images" :key="image.id">
+                    <img :src="`/storage/${image.image}`" alt="image" class="img-display" @click="setImageAsMain">
                 </div>
             </div>
         </div>
@@ -14,9 +15,12 @@
 
     export default {
         props:{
-            product: {
+            productid: {
                 required:true,
-            }
+            },
+            mainimage:{
+                required:true,
+            },
         },
 
         beforeMount(){
@@ -26,26 +30,20 @@
         data: function () {
             return {
                 images:Array,
+                href:`/storage/${this.mainimage}`,
             }
         },
 
         methods:{
             getPhotos: function(){
-                axios.get(`/api/admin/get-product-photos/${this.product}`)
+                axios.get(`/api/admin/get-product-photos/${this.productid}`)
                 .then((response) => {
                     this.images = response.data;
                 })
             },
 
-            onFileSelected(event){
-                var bodyFormData = new FormData();
-                bodyFormData.append('image',  event.target.files[0]);
-                bodyFormData.append('product_id', document.querySelector('#product_id').value);
-                axios.post('/api/admin/phote/store', bodyFormData)
-                .then((response) => {
-                    this.getPhotos();
-                    console.log(response);
-                })
+            setImageAsMain(event){
+                this.href = event.target.attributes.src.value;
             },
         }
     }
@@ -61,44 +59,54 @@
     padding: 10px;
     margin-right:5px;
     margin-bottom: 5px;
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     border: 1px solid black;
     position: relative;
     border-radius: 4px;
     }
     .img-display{
-        width: 100px;
-        height: 100px;
+        width: 80px;
+        height: 80px;
     }
+}
+
+.product-image{
+    border:1px solid black;
+    min-width: 80px;
+    max-width: 400px;
+    border-radius: 5px;
+    padding: 10px;
 }
 
 
 @media 
-only screen and (max-width: 760px),
-(min-device-width: 768px) and (max-device-width: 1024px)  {
+only screen and (max-width: 700px),
+(min-device-width: 728px) and (max-device-width: 924px)  {
 
-.image-display-block{
-    .image-display{
-        padding: 5px;
-        margin-right:5px;
-        width: 80px;
-        height: 80px;
-        border: 1px solid black;
-        position: relative;
-        border-radius: 4px;
+    .image-display-block{
+        .image-display{
+            padding: 5px;
+            margin-right:5px;
+            width: 80px;
+            height: 80px;
+            border: 1px solid black;
+            position: relative;
+            border-radius: 4px;
 
-        .img-display{
-            width: 70px;
-            height: 70px;
+            .img-display{
+                width: 70px;
+                height: 70px;
+            }
         }
     }
-}
-.product-img{
-    width: 150px;
-}
-    
-    
+    .product-image{
+        border:1px solid black;
+        min-width: 80px;
+        max-width: 170px;
+        border-radius: 5px;
+        padding: 5px;
+    }    
 }
 
 </style>
