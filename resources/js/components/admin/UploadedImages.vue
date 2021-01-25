@@ -62,6 +62,7 @@
 .image-preview-block
 {
     margin-top: 30px;
+    max-width: 600px;
 }
 
 </style>

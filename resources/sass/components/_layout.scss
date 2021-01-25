@@ -118,3 +118,13 @@ header {
     align-items: center;
   }
 }
+
+@media screen and (max-width: 930px) {
+  
+  .top-nav{
+    display: none !important;
+  }
+  .ta-image {
+    display: none !important;
+  }
+}

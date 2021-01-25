@@ -1,14 +1,13 @@
 <template>
     <div class="container">
-        <div  class="image-preview-block">
+        <div  class="image-display-block">
             <div class="d-inline-flex" v-for="image in images" :key="image.id">
-                <div class="image-preview_image">
-                    <img :src=" `/storage/${image.image}`" alt="image" class="img-sm">
+                <div class="image-display">
+                    <img :src=" `/storage/${image.image}`" alt="image" class="img-display">
                 </div>
             </div>
         </div>
     </div>
-    
 </template>
 
 <script  type="application/javascript">
@@ -48,31 +47,58 @@
                     console.log(response);
                 })
             },
-
-        },
-        components:{ SingleImage: () => import('./SingleImage.vue') }
-
+        }
     }
 </script>
 
 <style lang="scss">
 
-.image-preview-block
+.image-display-block
 {
     margin-top: 30px;
-}
-.image-preview_image{
+
+    .image-display{
     padding: 10px;
-    margin:0px;
+    margin-right:5px;
+    margin-bottom: 5px;
     width: 120px;
     height: 120px;
-    border: 2px solid #c3c5c6;
+    border: 1px solid black;
     position: relative;
     border-radius: 4px;
+    }
+    .img-display{
+        width: 100px;
+        height: 100px;
+    }
 }
-.img-sm{
-    width: 100px;
-    height: 100px;
+
+
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+.image-display-block{
+    .image-display{
+        padding: 5px;
+        margin-right:5px;
+        width: 80px;
+        height: 80px;
+        border: 1px solid black;
+        position: relative;
+        border-radius: 4px;
+
+        .img-display{
+            width: 70px;
+            height: 70px;
+        }
+    }
+}
+.product-img{
+    width: 150px;
+}
+    
+    
 }
 
 </style>

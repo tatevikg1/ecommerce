@@ -19,7 +19,7 @@
                     <h3><strong>
                         @include('partials._price')
                     </strong> </h3>
-                    <p>{{ $product->description }}</p>
+                    <p style="text-align: justify;">{{ $product->description }}</p>
 
                     <div class="ta-buttons mt-5">
 

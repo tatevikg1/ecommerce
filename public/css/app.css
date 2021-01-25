@@ -11012,6 +11012,16 @@ header .top-nav-right {
   align-items: center;
 }
 
+@media screen and (max-width: 930px) {
+  .top-nav {
+    display: none !important;
+  }
+
+  .ta-image {
+    display: none !important;
+  }
+}
+
 .button {
   border: 1px solid #212121;
   padding: 12px 40px;
@@ -11063,6 +11073,7 @@ li.active {
 
 .product-img {
   border: 1px solid black;
+  min-width: 80px;
 }
 
 .originalPrice {
