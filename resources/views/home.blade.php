@@ -29,11 +29,15 @@
                 <div class="container">
                     <h1 class="text-center">Laravel Ecommerce</h1>
 
-                    <p class="section-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore vitae nisi, consequuntur illum dolores cumque pariatur quis provident deleniti nesciunt officia est reprehenderit sunt aliquid possimus temporibus enim eum hic lorem.</p>
-
+                    <p class="section-description">Is there anything better than getting cozy on the couch on a rainy day and shopping  online?</p>
+                    <p class="section-description">Online shopping is the process of buying goods and services from merchants who sell on the Internet. Since the emergence of the World Wide Web, merchants have sought to sell their products to people who surf the Internet. Shoppers can visit web stores from the comfort of their homes and shop as they sit in front of the computer. </p>
+                    <p class="section-description">Consumers buy a variety of items from online stores. In fact, people can purchase just about anything from companies that provide their products online. Books, clothing, household appliances, toys, hardware, software, and health insurance are just some of the hundreds of products consumers can buy from an online store. </p>
+                    <p class="section-description">Many people choose to conduct shopping online because of the convenience. For example, when a person shops at a brick-and-mortar store, she has to drive to the store, find a parking place, and walk throughout the store until she locates the products she needs. After finding the items she wants to purchase, she may often need to stand in long lines at the cash register. </p>
+                    
+                    
                     <div class="text-center button-container">
+                        <a href="{{ route('shop.index', ['onsale' => 'sale']) }}" class="button button-black">On Sale</a>
                         <a href="#" class="button button-black">Featured</a>
-                        <a href="#" class="button button-black">On Sale</a>
                     </div>
 
 
@@ -55,17 +59,12 @@
                                 </div>
                             </div>
                         @endforeach
-
                     </div>
 
                     <div class="text-center button-container">
                         <a href="{{ route('shop.index') }}" class="button button-black">View more products</a>
                     </div>
-
                 </div>
-
             </div>
-
-
         </div>
 @endsection

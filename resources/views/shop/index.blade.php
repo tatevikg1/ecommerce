@@ -21,6 +21,7 @@
                     <ul style="list-style: none;padding:0">
                         <li><a href="{{ route('shop.index', ['category' => request()->category, 'sort' => 'high_low'])}}" class="spicy">From high to low</a></li>
                         <li><a href="{{ route('shop.index', ['category' => request()->category, 'sort' => 'low_high'])}}" class="spicy">From low to high</a></li>
+                        <li><a href="{{ route('shop.index', ['category' => request()->category, 'onsale' => 'sale']) }}" class="spicy">On Sale</a></li>
                     </ul>
 
                 </div>

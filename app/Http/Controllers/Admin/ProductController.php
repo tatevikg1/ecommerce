@@ -71,7 +71,7 @@ class ProductController extends Controller
             'category_id' => 'required',
         ]);
         // if the new price is less than it was before, set discont to that procent, else set it to 0
-        $discount = ($product->price > $request->price) ?  (($product->price - $request->price)/ $product->price) : 0;
+        $discount = ($product->price > $request->price) ?  (($product->price - $request->price)*100/ $product->price) : 0;
 
         try {
             $request->product->update([
