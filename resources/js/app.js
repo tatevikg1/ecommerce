@@ -52,7 +52,7 @@ if(window.location.pathname == '/admin/category')
 
         var url = '/admin/category';
         var formData = $(addCategoryForm).serializeArray();
-        $.post(url, formData).done(function (data) {
+        $.post(url, formData).done(function () {
             document.querySelector('#category').value = '';
             document.getElementById('addCategoryError').innerHTML = '';
             // $("#addCategoryError").html("");
