@@ -21,11 +21,11 @@ class CategoryController extends Controller
 
     public function store(CreateCategoryRequest $request)
     {
-        $slug = str_replace(' ', '-', strtolower($request['category']));
+        $slug = str_replace(' ', '-', strtolower($request['name']));
 
         try {
             Category::create([
-                'name' => $request['category'],
+                'name' => $request['name'],
                 'slug' => $slug
             ]);
         } catch (\Exception $e) {

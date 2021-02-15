@@ -7,7 +7,7 @@
             @csrf
 
             <div class="">
-                <input type="text" placeholder="Category name" id="category" name="category" value="{{ old('category') }}"  class="form-control" required>
+                <input type="text" placeholder="Category name" id="name" name="name" value="{{ old('name') }}"  class="form-control" required>
                 <span id="addCategoryError" class="error_messages" style="color:red"></span>
             </div>
 
