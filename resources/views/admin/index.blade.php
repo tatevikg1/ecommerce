@@ -21,13 +21,13 @@
             </a> 
         </div>
 
-        <div class="m-3">
+        <!-- <div class="m-3">
             <a href="{{ route('admin.category.index') }}">
                 <h4 class="admin-menu-item">
                     Customers
                 </h4>
             </a> 
-        </div>
+        </div> -->
 
     </div>
 </div>

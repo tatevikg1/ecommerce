@@ -30,9 +30,9 @@ class ProductController extends Controller
 
         $slug = str_replace(' ', '-', strtolower($request['name']));
 
-        $imagePath = request('image')->store('uploads', 'public');
-        $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
-        $image->save();
+        // $imagePath = request('image')->store('uploads', 'public');
+        // $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
+        // $image->save();
 
         Product::create([
             'name' => $request['name'],
@@ -41,7 +41,7 @@ class ProductController extends Controller
             'detales' => $request['detales'],
             'description' => $request['description'],
             'category_id' => $request['category_id'],
-            'image' => $imagePath,
+            // 'image' => $imagePath,
         ]);
         return redirect()->back();
     }
