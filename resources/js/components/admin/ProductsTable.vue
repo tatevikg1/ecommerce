@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import Product from './Product';
 
     export default{
 
@@ -43,7 +44,7 @@
             }
         },
 
-        components:{ Product: () => import('./Product.vue') }
+        components:{ Product }
     }
 </script>
 
