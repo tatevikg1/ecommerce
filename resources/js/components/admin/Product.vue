@@ -10,7 +10,7 @@
             <form method="post">
                 <input type="hidden" name="_token" :value="csrf">
                 <input type="hidden" name="product" :value="product.id">
-                <button @click="deleteProduct(product.id)" class="btn btn-secondary text-center">Delete</button>
+                <button @click="deleteProduct(product.id, $event)" class="btn btn-secondary text-center">Delete</button>
             </form>
         </td> 
         <td>

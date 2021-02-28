@@ -39076,7 +39076,7 @@ var render = function() {
               staticClass: "btn btn-secondary text-center",
               on: {
                 click: function($event) {
-                  return _vm.deleteProduct(_vm.product.id)
+                  return _vm.deleteProduct(_vm.product.id, $event)
                 }
               }
             },
