@@ -25,9 +25,8 @@ Route::prefix('later')->group(function (){
     Route::delete ('/later/{cartItem}', 'LaterController@destroy')->name('later.destroy');    
 });
 
-Route::prefix('admin')->group(function () {
-    Route::get      ('/',                     'Admin\AdminController@index')    ->name('admin.index');
-
+Route::prefix('admin')->middleware(['admin'])->group(function () {
+    Route::view     ('/',  'admin.index')                                       ->name('admin.index');
     Route::get      ('/category',             'Admin\CategoryController@index') ->name('admin.category.index');
     Route::delete   ('/category/{category}',  'Admin\CategoryController@destroy')->name('admin.category.destroy');
     Route::post     ('/category',             'Admin\CategoryController@store') ->name('admin.category.store');

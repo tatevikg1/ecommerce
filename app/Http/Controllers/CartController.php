@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Product;
 use App\CartItem;
 use App\Cart;
@@ -14,16 +13,19 @@ class CartController extends Controller
         $this->middleware('auth');
     }
 
-
+    /**
+     * @var App\Cart $cart
+     * @var App\CartItem $cartItems
+     * @var App\Product $randomFour
+    */
     public function index()
     {
         // get the users cart id and find all his cartItems
         $cart = Cart::Current();
-
         $cartItems = CartItem::where('cart_id', $cart->id)
-                            ->where('for_later', false)
-                            ->with('product')
-                            ->get();
+            ->where('for_later', false)
+            ->with('product')
+            ->get();
 
         // randomFour is a static function in product model
         $randomFour = Product::randomFour()
@@ -33,24 +35,21 @@ class CartController extends Controller
             }))
             ->get();
 
-
         return view('cart.index', compact('randomFour', 'cartItems', 'cart'));
     }
 
     public function store(Product $product)
     {
-        // get the instance of users cart
-        $cart = Cart::where('user_id', auth()->id())
-                    ->with('cartItems')->first();
+        // get the instance of users cart with cart items
+        $cart = Cart::where('user_id', auth()->id())->with('cartItems')->first();
 
         // chack if the item is already in the cart
         $dublicate = CartItem::where('product_id', $product->id)
-                    ->where('cart_id', $cart->id)
-                    ->where('for_later', false)
-                    ->first();
+            ->where('cart_id', $cart->id)
+            ->where('for_later', false)
+            ->first();
 
         if($dublicate){
-
             return redirect()->route('cart.index')->with('success_message', 'Item was already in your cart!');
         }
 
@@ -75,6 +74,9 @@ class CartController extends Controller
         return redirect()->route('cart.index')->with('success_message', 'Item has been removed!');
     }
 
+    /**
+     * move product(cart item) from for_later to cart
+    */
     public function tocart(CartItem $cartItem)
     {
         $cartItem->update(['for_later' => false]);

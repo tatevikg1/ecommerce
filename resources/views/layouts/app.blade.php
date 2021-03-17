@@ -13,7 +13,7 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- srtipe is for credit card charging -->
-    @if(Route::currentRouteName() == 'checkout.index' || Route::currentRouteName() =='checkout.store')
+    @if(Route::currentRouteName() == 'checkout.show' || Route::currentRouteName() =='checkout.store')
         <script src="https://js.stripe.com/v3/"></script>
         <script src="{{ asset('js/stripe.js') }}" defer></script>
     @endif

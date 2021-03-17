@@ -15,7 +15,10 @@ class CheckoutController extends Controller
         $this->middleware('auth');
     }
 
-
+    /**
+     * @var App\CartItem $products
+     * @var int $total
+    */
     public function index()
     {
         $products = CartItem::whereIn('cart_id', function($query){
@@ -24,22 +27,12 @@ class CheckoutController extends Controller
 
         $total = Cart::Current()->total_price;
 
-
         return view('checkout', compact('products', 'total'));
     }
 
     public function store(CheckoutRequest $request)
     {
-        // // get the current user
-        // $user = auth()->user();
-        // // try to get the user as stripecustomer
-        // $stripeCustomer = $user->asStripeCustomer();
-        // // if he is not yet a stripe customer create him as stripe customer
-        // if($stripeCustomer == 'undefined'){
-        //     $stripeCustomer = $user->createAsStripeCustomer();
-        // }
-
-        // get stripme api key from the .env file
+        // get stripe api key from the .env file
         \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
 
         try{

@@ -12,27 +12,25 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('admin');
-    }
-
+    /**
+     * @var App\Category $categories
+    */
     public function index()
     {
         $categories = Category::all();
         return view('admin.product.index', compact('categories'));
     }
 
+    /**
+     * @var string $slug
+    */
     public function store(CreateProductRequest $request)
     {
-
-        $request->validated();
-
         $slug = str_replace(' ', '-', strtolower($request['name']));
 
-        // $imagePath = request('image')->store('uploads', 'public');
-        // $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
-        // $image->save();
+        $imagePath = request('image')->store('uploads', 'public');
+        $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
+        $image->save();
 
         Product::create([
             'name' => $request['name'],
@@ -41,7 +39,7 @@ class ProductController extends Controller
             'detales' => $request['detales'],
             'description' => $request['description'],
             'category_id' => $request['category_id'],
-            // 'image' => $imagePath,
+            'image' => $imagePath,
         ]);
         return redirect()->back();
     }
@@ -53,6 +51,10 @@ class ProductController extends Controller
         return redirect()->route('admin.product.index')->with('success_message', 'Product has been removed!');
     }
 
+    /**
+     * @var App\Photo $photos
+     * @var App\Category $categories
+    */
     public function edit(Product $product)
     {
         $photos = Photo::where('product_id', $product->id)->get();
@@ -70,6 +72,7 @@ class ProductController extends Controller
             'description' => 'required',
             'category_id' => 'required',
         ]);
+        
         // if the new price is less than it was before, set discont to that procent, else set it to 0
         $discount = ($product->price > $request->price) ?  (($product->price - $request->price)*100/ $product->price) : 0;
 

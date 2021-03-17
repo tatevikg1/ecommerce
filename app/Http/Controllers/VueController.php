@@ -12,9 +12,15 @@ class VueController extends Controller
         $this->middleware('auth');
     }
 
-    public function updateQuantity($cartItemId, $number)
+    /**
+     * @param App\CartItem $cartItemId
+     * @param int $number
+     * 
+     * @return App\CartItem
+    */
+    public function updateQuantity(CartItem $cartItem, $number)
     {
-        $cartItem = CartItem::where('id', $cartItemId)->first();
+        // $cartItem = CartItem::where('id', $cartItemId)->first();
 
         $sum = ($number * $cartItem->price) - ($cartItem->price * $cartItem->quantity);
 

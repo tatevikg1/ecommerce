@@ -9,7 +9,11 @@ class ShopController extends Controller
 {
     /**
      * Show the application homepage.
-     *
+     * 
+     * @var App\Product $products
+     * @var App\Category $categories
+     * @var string $category_name
+     * 
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
@@ -38,6 +42,7 @@ class ShopController extends Controller
             $category_name = "On Sale";
         
         }else{
+
             $products = Product::all();
             $category_name = "All categories";
         }
@@ -56,7 +61,10 @@ class ShopController extends Controller
 
      /**
      * Show the product page.
-     *
+     * 
+     * @var App\Product $randomFour
+     * @var App\Product $products
+     * 
      * @return \Illuminate\Contracts\Support\Renderable
      */
 

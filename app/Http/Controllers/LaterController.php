@@ -12,27 +12,30 @@ class LaterController extends Controller
         $this->middleware('auth');
     }
 
+    /**
+     * products saved for later
+     * @var App\Cart $cart
+     * @var App\CartItem $cartItems
+    */
     public function index()
     {
         // get the users cart id and find all his cartItems
         $cart = Cart::current();
         $cartItems = CartItem::where('cart_id', $cart->id)->where('for_later', true)->with('product')->get();
 
-
         return view('cart.forlater', compact( 'cartItems', 'cart'));
     }
 
     public function add(CartItem $cartItem)
     {
-        //this should be made with vue and use toggle to move the item back and forth
         $productId = $cartItem->product_id;
         $cart = Cart::Current();
 
         // chack if the item is already in the cart
         $dublicate = CartItem::where('product_id', $productId)
-                    ->where('cart_id', $cart->id)
-                    ->where('for_later', true)
-                    ->first();
+            ->where('cart_id', $cart->id)
+            ->where('for_later', true)
+            ->first();
 
         if($dublicate){
             $cartItem->delete();
