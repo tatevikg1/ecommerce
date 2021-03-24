@@ -26,6 +26,9 @@ Vue.component('display-images', require('./components/DisplayImages.vue').defaul
 Vue.component('categories-table', require('./components/admin/CategoriesTable.vue').default);
 Vue.component('products-table', require('./components/admin/ProductsTable.vue').default);
 Vue.component('uploaded-images', require('./components/admin/UploadedImages.vue').default);
+
+Vue.component('language-switcher', require('./components/LanguageSwitcher.vue').default);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
