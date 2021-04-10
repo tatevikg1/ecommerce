@@ -16,6 +16,7 @@ class CategoryController extends Controller
     }
 
     /**
+     * @param \App\Http\Requests\CreateCategoryRequest $request
      * @var string $slug 
     */
     public function store(CreateCategoryRequest $request)
@@ -34,6 +35,10 @@ class CategoryController extends Controller
         return response('Category was added', 200)->header('Content-Type', 'text/plain');
     }
 
+    /**
+     * @param \App\Category $category
+     * @return \Illuminate\Http\RedirectResponse
+    */
     public function destroy(Category $category)
     {
         $category->delete();

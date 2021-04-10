@@ -22,7 +22,9 @@ class ProductController extends Controller
     }
 
     /**
+     * @param \App\Http\Requests\CreateProductRequest $request
      * @var string $slug
+     * @return \Illuminate\Http\RedirectResponse
     */
     public function store(CreateProductRequest $request)
     {
@@ -44,6 +46,10 @@ class ProductController extends Controller
         return redirect()->back();
     }
 
+    /**
+     * @param \App\Product $product
+     * @return \Illuminate\Http\RedirectResponse
+    */
     public function destroy(Product $product)
     {
         $product->delete();
@@ -52,8 +58,9 @@ class ProductController extends Controller
     }
 
     /**
-     * @var App\Photo $photos
-     * @var App\Category $categories
+     * @param \App\Product $product
+     * @var \App\Photo $photos
+     * @var \App\Category $categories
     */
     public function edit(Product $product)
     {
@@ -62,6 +69,12 @@ class ProductController extends Controller
         return view('admin.product.edit', compact('product', 'photos', 'categories'));
     }
 
+    /**
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Product $product
+     * @var int $discount
+     * @return \Illuminate\Http\RedirectResponse
+    */
     public function update(Request $request, Product $product)
     {
         $request->validate([
